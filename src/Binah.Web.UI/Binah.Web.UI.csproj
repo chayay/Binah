@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
