@@ -9,7 +9,7 @@ namespace Binah.Web.Api.Routes
 			routes.MapHttpRoute(
 				name: "DefaultApi",
 				routeTemplate: "api/{controller}/{id}",
-				defaults: null
+				defaults: new {id = RouteParameter.Optional}
 				);
 		}
 
