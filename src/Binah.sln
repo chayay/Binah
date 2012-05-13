@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Web.Api", "Binah.Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Core", "Binah.Core\Binah.Core.csproj", "{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Web.UI", "Binah.Web.UI\Binah.Web.UI.csproj", "{94D766DE-0D6E-48BF-81FB-174B3A3606C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
