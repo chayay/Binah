@@ -15,11 +15,8 @@ namespace Binah.Web.Api
 		public Server()
 		{
 			configuration = new HttpSelfHostConfiguration("http://localhost:9090");
-			new DefaultRouteRegistry().RegisterRoutes(configuration.Routes);
-			HttpRouteCollection httpRouteCollection = configuration.Routes;
 			ConfigureRoutes(configuration.Routes);
 			server = new HttpSelfHostServer(configuration);
-			
 		}
 
 		public void Start()
