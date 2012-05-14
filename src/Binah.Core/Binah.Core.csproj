@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Models\Entity.cs" />
-    <Compile Include="Models\SiddurText.cs" />
+    <Compile Include="Models\SiddurParagraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
