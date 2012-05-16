@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Binah.Migrations.Import;
 
 namespace Binah.Migrations
 {
@@ -10,7 +11,8 @@ namespace Binah.Migrations
 			Console.InputEncoding = Encoding.UTF8;
 			Console.OutputEncoding = Encoding.UTF8;
 
-			new CommandsRunner().LookForCommands();
+			new OpenSiddurOpenDocumentImporter().Import();
+			//new CommandsRunner().LookForCommands();
 		}
 	}
 }
