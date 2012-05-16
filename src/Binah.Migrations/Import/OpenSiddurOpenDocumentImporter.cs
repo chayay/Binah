@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Binah.Core.Hebrew;
 using Binah.Core.Extensions;
+using Binah.Core.Models;
+using Binah.Infrastructure.RavenDB;
 
 namespace Binah.Migrations.Import
 {
@@ -51,6 +53,8 @@ namespace Binah.Migrations.Import
 
 			var items = new List<string>();
 			var paragraphs = text.Descendants(XName.Get("p", TextXmlns)).ToArray();
+
+			var version = paragraphs.First(element => element.Value.StartsWith("Version ")).Value;
 			foreach (var paragraph in paragraphs)
 			{
 				var builder = new StringBuilder();
@@ -77,6 +81,27 @@ namespace Binah.Migrations.Import
 				File.WriteAllLines(string.Format("zzz_IgnoredItems{0}.txt", name), ignoredItems.Distinct(), Encoding.UTF8);
 			if (shouldIgnoreItems.Any())
 				File.WriteAllLines(string.Format("ShouldIgnoreItems{0}.txt", name), shouldIgnoreItems.Distinct(), Encoding.UTF8);
+
+			AddItemsToDatabase(items, version);
+		}
+
+		private void AddItemsToDatabase(List<string> items, string version)
+		{
+			using (var session = DocumentStoreHolder.Store.OpenSession())
+			{
+				foreach (var item in items)
+				{
+					session.Store(new SiddurParagraph
+					{
+						Content = item,
+						CreationDate = DateTimeOffset.Now,
+						Revision = 1,
+						Type = SiddurType.TorahOr,
+						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{{0}}'.{0}", version),
+					});
+				}
+				session.SaveChanges();
+			}
 		}
 
 		private bool IgnoreItem(string span)
