@@ -1,4 +1,4 @@
-namespace Binah.Migrations.Hebrew
+namespace Binah.Core.Hebrew
 {
 	public class YiddishDigraph
 	{
@@ -8,5 +8,7 @@ namespace Binah.Migrations.Hebrew
 
 		public const char AlefLamed = '\xFB4F';
 		public const char ZeroWidthJoiner = '\x200D';
+
+		public const char NunHafukha = '\x05C6';
 	}
 }

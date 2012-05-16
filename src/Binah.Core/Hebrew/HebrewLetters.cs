@@ -1,4 +1,4 @@
-namespace Binah.Migrations.Hebrew
+namespace Binah.Core.Hebrew
 {
 	public class HebrewLetters
 	{

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Hebrew\CantillationMarks.cs" />
+    <Compile Include="Hebrew\HebrewExtensions.cs" />
     <Compile Include="Hebrew\HebrewLetters.cs" />
     <Compile Include="Hebrew\HebrewVowels.cs" />
     <Compile Include="Hebrew\YiddishDigraph.cs" />

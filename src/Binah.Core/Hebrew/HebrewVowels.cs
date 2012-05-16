@@ -1,4 +1,4 @@
-namespace Binah.Migrations.Hebrew
+namespace Binah.Core.Hebrew
 {
 	public class HebrewVowels
 	{
@@ -24,7 +24,6 @@ namespace Binah.Migrations.Hebrew
 		public const char SofPasuq = '\x05C3';
 		public const char MarkUpperDot = '\x05C4';
 		public const char MarkLowerDot = '\x05C5';
-		public const char NunHafukha = '\x05C6';
 		public const char QamatsQatan = '\x05C7';
 	}
 }
