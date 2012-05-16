@@ -9,12 +9,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Web.UI", "Binah.Web.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Migrations", "Binah.Migrations\Binah.Migrations.csproj", "{F09F9E9C-259C-4235-9A33-2D8292E1A85D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Infrastructure.RavenDB", "Binah.Infrastructure.RavenDB\Binah.Infrastructure.RavenDB.csproj", "{19C42070-E604-48B0-8666-9C5DC971CCDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19C42070-E604-48B0-8666-9C5DC971CCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C42070-E604-48B0-8666-9C5DC971CCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C42070-E604-48B0-8666-9C5DC971CCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C42070-E604-48B0-8666-9C5DC971CCDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
