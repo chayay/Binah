@@ -16,6 +16,8 @@ namespace Binah.Migrations
 
 			new OpenSiddurOpenDocumentImporter().Import();
 			//new CommandsRunner().LookForCommands();
+
+			DocumentStoreHolder.Shutdown();
 		}
 	}
 }
