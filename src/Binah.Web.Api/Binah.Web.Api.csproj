@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AbstractApiController.cs" />
+    <Compile Include="Controllers\NewItemsController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\DefaultRouteRegistry.cs" />
@@ -87,9 +89,12 @@
       <Project>{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}</Project>
       <Name>Binah.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Binah.Infrastructure.RavenDB\Binah.Infrastructure.RavenDB.csproj">
+      <Project>{19C42070-E604-48B0-8666-9C5DC971CCDB}</Project>
+      <Name>Binah.Infrastructure.RavenDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Infrastructure\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

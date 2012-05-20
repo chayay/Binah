@@ -91,13 +91,19 @@ namespace Binah.Migrations.Import
 			{
 				foreach (var item in items)
 				{
-					session.Store(new SiddurParagraph
+					var siddurParagraph = new SiddurParagraph
 					{
 						Content = item,
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
 						Type = SiddurType.TorahOr,
 						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{{0}}'.{0}", version),
+					};
+					session.Store(siddurParagraph);
+					session.Store(new NewItemInserted
+					{
+						ItemId = siddurParagraph.Id,
+						CreationDate = DateTimeOffset.Now,
 					});
 				}
 				session.SaveChanges();

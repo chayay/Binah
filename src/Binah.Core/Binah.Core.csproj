@@ -46,6 +46,7 @@
     <Compile Include="Hebrew\HebrewVowels.cs" />
     <Compile Include="Hebrew\YiddishDigraph.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\NewItemInserted.cs" />
     <Compile Include="Models\SiddurParagraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
