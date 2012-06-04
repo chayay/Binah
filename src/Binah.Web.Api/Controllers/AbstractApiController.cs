@@ -1,9 +1,11 @@
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using Binah.Infrastructure.RavenDB;
+using Raven.Abstractions.Exceptions;
 using Raven.Client;
 
 namespace Binah.Web.Api.Controllers
@@ -15,6 +17,8 @@ namespace Binah.Web.Api.Controllers
 		public override Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
 		{
 			RavenSession = DocumentStoreHolder.Store.OpenSession();
+			RavenSession.Advanced.UseOptimisticConcurrency = true;
+
 			return base.ExecuteAsync(controllerContext, cancellationToken)
 				.ContinueWith(task =>
 				{
@@ -22,7 +26,16 @@ namespace Binah.Web.Api.Controllers
 					{
 						if (task.Status != TaskStatus.Faulted && RavenSession != null)
 						{
-							RavenSession.SaveChanges();
+							try
+							{
+								RavenSession.SaveChanges();
+
+							}
+							catch (ConcurrencyException)
+							{
+								
+								throw;
+							}
 						}
 					}
 					return task;
