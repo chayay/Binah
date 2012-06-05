@@ -6,7 +6,7 @@ define(function (require) {
     'use strict';
 
     var $ = require('jquery'),
-        network = require('modules/network');
+        network = require('libs/network');
 
     // Return a function that can be called to do the DOM binding given a
     // jQuery DOM object to use as the parent container.

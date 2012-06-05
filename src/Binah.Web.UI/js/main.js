@@ -7,6 +7,7 @@ require.config({
         jquery: 'libs/jquery/jquery',
         underscore: 'libs/underscore/underscore',
         backbone: 'libs/backbone/backbone',
+        dust: 'libs/dust/dust-core',
 
         // Require.js plugins
         text: 'libs/require/text',
@@ -19,22 +20,24 @@ require.config({
     },
     
     use: {
-        "underscore": {
-            attach: "_"
+        underscore: {
+            attach: '_'
         },
 
-        "backbone": {
-            deps: ["use!underscore", "jquery"],
+        backbone: {
+            deps: ['use!underscore', 'jquery'],
             attach: function (_, $) {
-                return Backbone;
+                return window.Backbone;
             }
-        }
+        },
     },
     
-    waitSeconds: 15,
-    urlArgs: "bust=" + (new Date()).getTime(),
+    waitSeconds: 2,
+    urlArgs: 'bust=' + (new Date()).getTime(),
     catchError: true
 });
+
+_.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
 // Start loading the main app file.
 require(['app/main']);

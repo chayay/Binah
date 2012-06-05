@@ -15,7 +15,7 @@ namespace Binah.Web.Api
 		public Server()
 		{
 			configuration = new HttpSelfHostConfiguration("http://localhost:9090");
-			ConfigureRoutes(configuration.Routes);
+			RegisterRoutes(configuration.Routes);
 			server = new HttpSelfHostServer(configuration);
 		}
 
@@ -40,11 +40,13 @@ namespace Binah.Web.Api
 			}
 		}
 
-		private void ConfigureRoutes(HttpRouteCollection routes)
+		private void RegisterRoutes(HttpRouteCollection routes)
 		{
 			GetType().Assembly.GetTypes()
 				.Where(type => typeof(IRouteRegistry).IsAssignableFrom(type) && type.IsAbstract == false)
-				.ForEach(type => ((IRouteRegistry)Activator.CreateInstance(type)).RegisterRoutes(routes));
+				.Select(type => ((IRouteRegistry)Activator.CreateInstance(type)))
+				.OrderBy(registry => registry.Priority)
+				.ForEach(registry => registry.RegisterRoutes(routes));
 		}
 	}
 }

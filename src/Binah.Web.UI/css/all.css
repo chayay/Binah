@@ -1,4 +1,9 @@
-﻿/* Third party helper libraries */
+﻿/* CSS Styleguide:
+	https://github.com/styleguide/css
+	https://github.com/styleguide/javascript
+*/
+
+/* Third party helper libraries */
 @import url("normalize.css");
 
 /* Custom themes */

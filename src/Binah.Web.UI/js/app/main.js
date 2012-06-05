@@ -6,6 +6,7 @@ define(function (require) {
     var backbone = require('use!backbone');
 
     $(function () {
+        require('./router')();
         require('./uiNetwork')();
         require('./uiAppCache')();
     });

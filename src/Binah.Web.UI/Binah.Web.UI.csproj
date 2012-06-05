@@ -42,17 +42,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\normalize.css" />
     <Content Include="css\layout.css" />
     <Content Include="css\menus.css" />
-    <Content Include="css\normalize.css" />
     <Content Include="css\all.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="index.html" />
+    <Content Include="js\app\router.js" />
     <Content Include="js\app\uiAppCache.js" />
     <Content Include="js\app\uiNetwork.js" />
     <Content Include="js\libs\backbone\backbone.js" />
     <Content Include="js\libs\backbone\backbone.min.js" />
+    <Content Include="js\libs\dust\dust-core.js" />
+    <Content Include="js\libs\dust\dust-core.min.js" />
+    <Content Include="js\libs\dust\dust-full.js" />
+    <Content Include="js\libs\dust\dust-full.min.js" />
     <Content Include="js\libs\jquery\jquery.intellisense.js" />
     <Content Include="js\libs\jquery\jquery.js" />
     <Content Include="js\libs\jquery\jquery.min.js" />
@@ -62,8 +67,8 @@
     <Content Include="js\libs\underscore\underscore.js" />
     <Content Include="js\libs\underscore\underscore.min.js" />
     <Content Include="js\main.js" />
-    <Content Include="js\modules\appCache.js" />
-    <Content Include="js\modules\network.js" />
+    <Content Include="js\libs\appCache.js" />
+    <Content Include="js\libs\network.js" />
     <Content Include="js\app\main.js" />
     <Content Include="js\libs\require\cs.js" />
     <Content Include="js\libs\require\domReady.js" />
@@ -77,6 +82,9 @@
     <Content Include="js\libs\require\require.min.js" />
     <Content Include="js\libs\require\text.js" />
     <Content Include="js\libs\require\text.min.js" />
+    <Content Include="js\module-boilerplate.js" />
+    <Content Include="js\siddur\newItemsView.js" />
+    <Content Include="templates\index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="imgs\" />
-    <Folder Include="templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
