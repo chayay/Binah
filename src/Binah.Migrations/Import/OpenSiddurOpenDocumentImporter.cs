@@ -51,30 +51,60 @@ namespace Binah.Migrations.Import
 			var body = document.Descendants(XName.Get("body", OfficeXmlns)).Single();
 			var text = body.Descendants(XName.Get("text", OfficeXmlns)).Single();
 
-			var items = new List<string>();
+			var resultItmes = new List<string>();
 			var paragraphs = text.Descendants(XName.Get("p", TextXmlns)).ToArray();
 
 			var version = paragraphs.First(element => element.Value.StartsWith("Version ")).Value;
 			foreach (var paragraph in paragraphs)
 			{
-				var builder = new StringBuilder();
-				var spans = paragraph.Descendants(XName.Get("span", TextXmlns))
-					.Select(span => span.Value)
-					.ToArray();
-				if (!spans.Any(span => span.Any(c => c.IsVowel())))
-					continue;
-				foreach (var span in spans)
+				var items = new List<string>();
+				var textToIgnore = new List<string>();
+
+				foreach (var node in paragraph.DescendantNodes())
 				{
-					if (span == "")
-						builder.Append(' ');
-					else if (IgnoreItem(span) == false)
+					var xElement = node as XElement;
+					if (xElement != null)
 					{
-						builder.Append(span);
+						if (xElement.Name.LocalName != "span")
+						{
+							textToIgnore.Add(xElement.Value);
+							continue;
+						}
+						var span = xElement.Value;
+						if (span == "")
+							items.Add(" ");
+						else if (IgnoreItem(span) == false)
+						{
+							items.Add(span);
+						}
+						continue;
 					}
+
+					var xText = node as XText;
+					if (xText != null)
+					{
+						var value = xText.Value;
+						var lastItem = items.LastOrDefault();
+						if (lastItem == null)
+						{
+							items.Add(value);
+						}
+						else if (!lastItem.Contains(value) && !IgnoreItem(value) && !textToIgnore.Contains(value))
+						{
+							items.Add(value);
+							textToIgnore.Clear();
+						}
+						continue;
+					}
+
+					throw new InvalidOperationException(node.GetType() + " is not recognized element.");
 				}
-				var item = builder.ToString();
-				//item = item.Remove(item.Length - 1, 1);
-				items.Add(item);
+
+				if (!items.Any(item => item.Any(c => c.IsVowel())))
+					continue;
+				
+				var result = string.Join("", items);
+				resultItmes.Add(result);
 			}
 
 			if (ignoredItems.Any())
@@ -82,7 +112,8 @@ namespace Binah.Migrations.Import
 			if (shouldIgnoreItems.Any())
 				File.WriteAllLines(string.Format("ShouldIgnoreItems{0}.txt", name), shouldIgnoreItems.Distinct(), Encoding.UTF8);
 
-			AddItemsToDatabase(items, version);
+			AddItemsToDatabase(resultItmes, version);
+			Console.WriteLine(string.Format("{0} items imported.", resultItmes.Count));
 		}
 
 		private void AddItemsToDatabase(List<string> items, string version)
@@ -91,19 +122,14 @@ namespace Binah.Migrations.Import
 			{
 				foreach (var item in items)
 				{
-					var siddurParagraph = new SiddurParagraph
+					session.Store(new SiddurParagraph
 					{
+						Id = "NewItemInserted/SiddurParagraph/",
 						Content = item,
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
 						Type = SiddurType.TorahOr,
 						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{{0}}'.{0}", version),
-					};
-					session.Store(siddurParagraph);
-					session.Store(new NewItemInserted
-					{
-						ItemId = siddurParagraph.Id,
-						CreationDate = DateTimeOffset.Now,
 					});
 				}
 				session.SaveChanges();

@@ -1,7 +1,5 @@
-﻿using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Linq;
 using Binah.Core.Models;
-using System.Linq;
 
 namespace Binah.Web.Api.Controllers
 {
@@ -9,14 +7,11 @@ namespace Binah.Web.Api.Controllers
 	{
 		public SiddurParagraph[] Get()
 		{
-			var newItems = RavenSession.Query<NewItemInserted>()
+			var items = RavenSession.Advanced.LoadStartingWith<SiddurParagraph>("NewItemInserted/SiddurParagraph/")
 				.OrderBy(item => item.CreationDate)
-				.Select(item => item.ItemId)
 				.ToArray();
 
-			var items = RavenSession.Load<object>(newItems);
-
-			return items.Cast<SiddurParagraph>().ToArray();
+			return items;
 		}
 	}
 }
