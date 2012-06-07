@@ -138,6 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\all.css" />
+    <Content Include="css\fonts.css" />
+    <Content Include="css\siddur.css" />
     <Content Include="css\layout.css" />
     <Content Include="css\menus.css" />
     <Content Include="css\normalize.css" />
@@ -166,6 +168,10 @@
     <Content Include="js\libs\dust\dust-full.min.js">
       <DependentUpon>dust-full.js</DependentUpon>
     </Content>
+    <Content Include="fonts\ezrasilsr-webfont.svg" />
+    <Content Include="fonts\ezrasilsr-webfont.eot" />
+    <Content Include="fonts\ezrasilsr-webfont.ttf" />
+    <Content Include="fonts\ezrasilsr-webfont.woff" />
     <None Include="js\libs\jquery\jquery.intellisense.js">
       <DependentUpon>jquery.js</DependentUpon>
     </None>

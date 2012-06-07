@@ -1,0 +1,11 @@
+@font-face
+{
+	font-family: 'EzraSilSR';
+    src: url('/fonts/ezrasilsr-webfont.eot');
+    src: url('/fonts/ezrasilsr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/ezrasilsr-webfont.woff') format('woff'),
+         url('/fonts/ezrasilsr-webfont.ttf') format('truetype'),
+         url('/fonts/ezrasilsr-webfont.svg#EzraSilSR') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
