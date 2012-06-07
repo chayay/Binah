@@ -9,17 +9,17 @@
     <title>Binah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Binah lets you browse Jewish contests with pleasent.">
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="/css/all.css">
 </head>
-<body>
+<body class="ng-app: BinahApp;" ng-controller="AppCtrl">
     <header>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <nav>
                     <ul>
                         <li><a href="/">Main</a></li>
-                        <li><a href="/siddur">Siddur</a></li>
-                        <li><a href="/nested/url/what/is/new">Nested Url</a></li>
+                        <li><a href="/siddur/paragraphs">Siddur Paragraphs</a></li>
+                        <li><a href="/new/items">New Items</a></li>
                     </ul>
                 </nav>
             </div>
@@ -28,12 +28,20 @@
             <h1><a class="brand" href="/">Binah</a></h1>
         </div>
     </header>
+    
+    <div id="main-container" class="container ng-view"></div>
 
-    <div id="main-container" class="container"></div>
-      
     <footer></footer>
     
-    <script async data-main="js/main" src="js/libs/require/require.js" charset="utf-8"></script>
+
+    <script src="/js/libs/angular/angular.js"></script>
+    <script src="/js/libs/angular/angular-resource.js"></script>
+    <script src="/js/app/app.js"></script>
+    <script src="/js/app/services.js"></script>
+    <script src="/js/app/controllers.js"></script>
+    <script src="/js/app/filters.js"></script>
+    <script src="/js/app/directives.js"></script>
+
     <!-- GetClicky.com -->
 </body>
 </html>
