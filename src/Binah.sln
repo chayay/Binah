@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 11
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Web.Api", "Binah.Web.Api\Binah.Web.Api.csproj", "{61BB9270-B176-49D8-836D-C62D3EDAD6E2}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Web.Api", "Binah.Web.Api\Binah.Web.Api.csproj", "{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Core", "Binah.Core\Binah.Core.csproj", "{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}"
 EndProject
@@ -25,10 +25,10 @@ Global
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61BB9270-B176-49D8-836D-C62D3EDAD6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D766DE-0D6E-48BF-81FB-174B3A3606C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
