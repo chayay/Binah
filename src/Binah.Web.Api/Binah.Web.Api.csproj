@@ -154,6 +154,7 @@
     <Content Include="js\app\router.js" />
     <Content Include="js\app\services.js" />
     <Content Include="js\libs\angular\angular-resource.js" />
+    <Content Include="js\libs\angular\angular-sanitize.js" />
     <Content Include="js\libs\angular\angular.js" />
     <Content Include="js\libs\appCache.js" />
     <Content Include="js\libs\backbone\backbone.js" />

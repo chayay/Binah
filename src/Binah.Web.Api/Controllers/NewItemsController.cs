@@ -9,11 +9,18 @@ namespace Binah.Web.Api.Controllers
 		[GET("api/new/items")]
 		public SiddurParagraph[] Get()
 		{
-			var items = RavenSession.Advanced.LoadStartingWith<SiddurParagraph>("NewItemInserted/SiddurParagraph/", 0, 128)
+			var items = RavenSession.Query<SiddurParagraph>()
+				.Where(item => item.Id.StartsWith("NewItemInserted/SiddurParagraph/"))
 				.OrderBy(item => item.CreationDate)
 				.ToArray();
 
 			return items;
+		}
+
+		[POST("api/new/items")]
+		public SiddurParagraph Post(SiddurParagraph paragraph)
+		{
+			return paragraph;
 		}
 	}
 }
