@@ -5,3 +5,12 @@
 	text-align: justify;
 	width: 435px;
 }
+
+input {
+	width: 300px;
+}
+textarea {
+	width: 800px;
+	height: 100px;
+	direction: rtl;
+}

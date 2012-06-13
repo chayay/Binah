@@ -1,7 +1,24 @@
 ﻿<article>
     <header>
-        <h1>Siddur</h1>
+        <h1>סידור</h1>
     </header>
     
-    {{name}}
+    <section ng-repeat="item in items">
+        <div>
+            <button ng-click="item.$approve()">Approve</button>
+        </div>
+        <div>
+            <label>
+                <span>ID</span>
+                <input type="text" ng-model="item.Id" required ng-minlength="10">
+            </label>
+        </div>
+        <div ng-model="item.Id" ></div>
+        <div>{{item.Id}}</div>
+        <p class="siddurParagraph" ng-model="item.Content" lang="he" contenteditable="true">{{item.Content}}</p>
+        {{item.Content}}
+        <div>
+            <button ng-click="item.$approve()">Approve</button>
+        </div>
+    </section>
 </article>

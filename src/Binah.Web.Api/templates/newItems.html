@@ -3,17 +3,20 @@
         <h1>סידור</h1>
     </header>
     
-    <section ng-repeat="item in items" >
+    <section ng-repeat="item in items">
         <div>
             <button ng-click="item.$approve()">Approve</button>
         </div>
-        <div><input type="text" ng-model="item.Id" required ng-minlength="10"></div>
-        <div ng-model="item.Id" ></div>
-        <div>{{item.Id}}</div>
-        <p class="siddurParagraph" ng-model="item.Content" lang="he" contenteditable="true">{{item.Content}}</p>
-        {{item.Content}}
+        <div>
+            <label>
+                <span>ID</span>
+                <input type="text" ng-model="item.Id" required ng-minlength="10">
+            </label>
+        </div>
+        <textarea ng-model="item.Content" required></textarea>
         <div>
             <button ng-click="item.$approve()">Approve</button>
         </div>
+        <hr>
     </section>
 </article>

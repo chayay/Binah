@@ -10,6 +10,7 @@ namespace Binah.Web.Api.Controllers
 		public SiddurParagraph[] Get()
 		{
 			var items = RavenSession.Query<SiddurParagraph>()
+				.Customize(x => x.WaitForNonStaleResultsAsOfNow())
 				.Where(item => item.Id.StartsWith("NewItemInserted/SiddurParagraph/"))
 				.OrderBy(item => item.CreationDate)
 				.ToArray();
