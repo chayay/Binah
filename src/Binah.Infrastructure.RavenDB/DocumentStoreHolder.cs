@@ -32,10 +32,8 @@ namespace Binah.Infrastructure.RavenDB
 
 		private static void SetupConventions(DocumentConvention conventions)
 		{
-			conventions.TransformTypeTagNameToDocumentKeyPrefix = x => x; // Always use an UpperCase document keys.
-
 			var generator = new MultiTypeHiLoKeyGenerator(Store, 1);
-			Store.Conventions.DocumentKeyGenerator = entity => generator.GenerateDocumentKey(Store.Conventions, entity);
+			conventions.DocumentKeyGenerator = entity => generator.GenerateDocumentKey(conventions, entity);
 		}
 
 		public static void Shutdown()
