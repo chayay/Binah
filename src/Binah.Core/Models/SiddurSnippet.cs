@@ -2,7 +2,7 @@
 
 namespace Binah.Core.Models
 {
-	public class SiddurParagraph : Entity
+	public class SiddurSnippet : Entity
 	{
 		public string Content { get; set; }
 		public bool IsProofreaded { get; set; }

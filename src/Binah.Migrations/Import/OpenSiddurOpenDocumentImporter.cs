@@ -122,9 +122,9 @@ namespace Binah.Migrations.Import
 			{
 				foreach (var item in items)
 				{
-					session.Store(new SiddurParagraph
+					session.Store(new SiddurSnippet
 					{
-						Id = "NewItemInserted/SiddurParagraph/",
+						Id = "NewItemInserted/SiddurSnippet/",
 						Content = item,
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
