@@ -160,6 +160,10 @@
     <Content Include="js\libs\backbone\backbone.min.js">
       <DependentUpon>backbone.js</DependentUpon>
     </Content>
+    <Content Include="js\libs\DiffMatchPatch\diffMatchPatch.js" />
+    <Content Include="js\libs\DiffMatchPatch\diffMatchPatch.min.js">
+      <DependentUpon>diffMatchPatch.js</DependentUpon>
+    </Content>
     <Content Include="js\libs\dust\dust-core.js" />
     <Content Include="js\libs\dust\dust-core.min.js">
       <DependentUpon>dust-core.js</DependentUpon>
