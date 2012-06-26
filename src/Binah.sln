@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Siddur", "Binah.Siddu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Tests.Unit", "Binah.Tests.Unit\Binah.Tests.Unit.csproj", "{00DF482E-3881-4139-BFCC-B2211903DD6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Tests.Integration", "Binah.Tests.Integration\Binah.Tests.Integration.csproj", "{EF63B603-C713-400A-BA4C-5F2E7B249797}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F09F9E9C-259C-4235-9A33-2D8292E1A85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F09F9E9C-259C-4235-9A33-2D8292E1A85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09F9E9C-259C-4235-9A33-2D8292E1A85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
