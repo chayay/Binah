@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Compile Include="Hebrew\HebrewLetters.cs" />
     <Compile Include="Hebrew\HebrewVowels.cs" />
     <Compile Include="Hebrew\YiddishDigraph.cs" />
+    <Compile Include="Imports\DiffMatchPatch\DiffMatchPatch.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\SiddurSnippet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
