@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AttributeRoutingHttp.cs" />
+    <Compile Include="App_Start\CommonSetup.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbstractApiController.cs" />
@@ -135,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\NewSiddurParagraph.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\all.css" />
@@ -153,9 +155,6 @@
     <Content Include="js\app\filters.js" />
     <Content Include="js\app\router.js" />
     <Content Include="js\app\services.js" />
-    <Content Include="js\libs\angular\angular-resource.js" />
-    <Content Include="js\libs\angular\angular-sanitize.js" />
-    <Content Include="js\libs\angular\angular.js" />
     <Content Include="js\libs\appCache.js" />
     <Content Include="js\libs\backbone\backbone.js" />
     <Content Include="js\libs\backbone\backbone.min.js">
@@ -213,6 +212,22 @@
     <Content Include="js\uiAppCache.js" />
     <Content Include="js\uiNetwork.js" />
     <Content Include="js\_references.js" />
+    <Content Include="js\libs\angular\angular-resource.js" />
+    <Content Include="js\libs\angular\angular-resource.min.js">
+      <DependentUpon>angular-resource.js</DependentUpon>
+    </Content>
+    <Content Include="js\libs\angular\angular-sanitize.js" />
+    <Content Include="js\libs\angular\angular-sanitize.min.js">
+      <DependentUpon>angular-sanitize.js</DependentUpon>
+    </Content>
+    <Content Include="js\libs\angular\angular.js" />
+    <Content Include="js\libs\angular\angular.min.js">
+      <DependentUpon>angular.js</DependentUpon>
+    </Content>
+    <Content Include="js\libs\angular\i18n\angular-locale_en-us.js" />
+    <Content Include="js\libs\angular\i18n\angular-locale_en.js" />
+    <Content Include="js\libs\angular\i18n\angular-locale_he-il.js" />
+    <Content Include="js\libs\angular\i18n\angular-locale_he.js" />
     <Content Include="templates\newItems.html" />
     <Content Include="templates\siddur.html" />
     <Content Include="templates\siddurParagraphs.html" />
