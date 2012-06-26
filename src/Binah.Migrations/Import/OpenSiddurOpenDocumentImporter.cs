@@ -113,7 +113,7 @@ namespace Binah.Migrations.Import
 				File.WriteAllLines(string.Format("ShouldIgnoreItems{0}.txt", name), shouldIgnoreItems.Distinct(), Encoding.UTF8);
 
 			AddItemsToDatabase(resultItmes, version);
-			Console.WriteLine(string.Format("{0} items imported.", resultItmes.Count));
+			Console.WriteLine("{0} items imported.", resultItmes.Count);
 		}
 
 		private void AddItemsToDatabase(List<string> items, string version)
@@ -129,7 +129,7 @@ namespace Binah.Migrations.Import
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
 						Type = SiddurType.TorahOr,
-						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{{0}}'.{0}", version),
+						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{0}'.", version),
 					});
 				}
 				session.SaveChanges();
