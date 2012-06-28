@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Xml.Linq;
 using Binah.Core.Hebrew;
 using Binah.Core.Extensions;
@@ -131,6 +132,7 @@ namespace Binah.Migrations.Import
 						Type = SiddurType.TorahOr,
 						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{0}'.", version),
 					});
+					Thread.Sleep(10);
 				}
 				session.SaveChanges();
 			}
