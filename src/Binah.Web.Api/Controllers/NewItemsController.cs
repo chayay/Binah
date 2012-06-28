@@ -21,7 +21,7 @@ namespace Binah.Web.Api.Controllers
 	
 			if (saved != true)
 			{
-				itemsQ = itemsQ.Where(item => item.Id.StartsWith("NewItemInserted/SiddurSnippet/"));
+				itemsQ = itemsQ.Where(item => item.Id.StartsWith("rawImport/SiddurSnippet/"));
 			}
 
 			var items = itemsQ.OrderBy(item => item.CreationDate)

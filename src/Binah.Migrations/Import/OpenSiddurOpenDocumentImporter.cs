@@ -125,7 +125,7 @@ namespace Binah.Migrations.Import
 				{
 					session.Store(new SiddurSnippet
 					{
-						Id = "NewItemInserted/SiddurSnippet/",
+						Id = "rawImport/SiddurSnippet/",
 						Content = item,
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
