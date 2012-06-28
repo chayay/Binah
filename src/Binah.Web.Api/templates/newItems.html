@@ -2,18 +2,28 @@
     <header>
         <h1>סידור</h1>
     </header>
-    
+    <a ng-click="showNew()">New</a>
+    <a ng-click="showSaved()">Saved</a>
+    <div>
+        {{doingWork}}
+        <br/>
+        <hr/>
+        <input type="number" ng-model="size">
+    </div>
     <section ng-repeat="item in items">
         <div>
-            <button ng-click="item.$approve()">Approve</button>
+            <button ng-click="save(item)">Approve</button>
+            <button ng-click="item.$delete({id: item.Id})" style="float: right">Delete</button>
         </div>
         <div>
             <label>
                 <span>ID</span>
-                <input type="text" ng-model="item.Id" required ng-minlength="10">
+                <input type="text" ng-model="item.NewId" required ng-minlength="2">
             </label>
         </div>
-        <textarea ng-model="item.Content" required></textarea>
+        <div>Old ID: {{item.Id}}</div>
+        <div>Revision: {{item.Revision}}</div>
+        <div>{{item.Content}}</div>
         <div>
             <button ng-click="item.$approve()">Approve</button>
         </div>

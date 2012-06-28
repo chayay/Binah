@@ -1,18 +1,6 @@
 ﻿'use strict';
 
-angular.module('BinahApp', ['ngResource', 'ngSanitize']).config(function ($routeProvider, $locationProvider) {
-    $routeProvider.when('/siddur/paragraphs', {
-        templateUrl: '/templates/siddurParagraphs.html',
-        controller: SiddurParagraphsCtrl
-    }).when('/new/items', {
-        templateUrl: '/templates/newItems.html',
-        controller: NewItemsCtrl
-    }).otherwise({
-        
-    });
-    
-    $locationProvider.html5Mode(true);
-}).controller('AppCtrl', function AppCtrl($scope, $route, $routeParams, $location) {
+angular.module('BinahApp', ['ngResource', 'ngSanitize']).controller('AppCtrl', function AppCtrl($scope, $route, $routeParams, $location) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
@@ -35,7 +23,30 @@ angular.module('BinahApp', ['ngResource', 'ngSanitize']).config(function ($route
             });
         }
     };
-}]);
+}]).config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/siddur/paragraphs', {
+        templateUrl: '/templates/siddurParagraphs.html',
+        controller: SiddurParagraphsCtrl
+    }).when('/new/items', {
+        templateUrl: '/templates/newItems.html',
+        controller: NewItemsCtrl
+    }).otherwise({
+
+    });
+
+    $locationProvider.html5Mode(true);
+}).provider({
+
+    $exceptionHandler: function () {
+        var handler = function (exception, cause) {
+            alert(exception);
+        };
+
+        this.$get = function () {
+            return handler;
+        };
+    }
+});
 
 function SiddurParagraphsCtrl($scope, $routeParams, $resource) {
     $scope.name = "SiddurCtrl";
@@ -46,12 +57,34 @@ function SiddurParagraphsCtrl($scope, $routeParams, $resource) {
 SiddurParagraphsCtrl.$inject = ['$scope', '$routeParams', '$resource'];
 
 
-function NewItemsCtrl($scope, $routeParams, $resource) {
+function NewItemsCtrl($scope, $routeParams, $resource, $http) {
     $scope.name = "SiddurCtrl";
     $scope.params = $routeParams;
+    $scope.size = 24;
+   
+    $scope.showNew = function() {
+        var newItems = $resource('/api/new/items', { size: $scope.size }, {
+            approve: { method: 'POST' }
+        });
+        $scope.items = newItems.query();
+    };
+    $scope.showNew();
+    
+    $scope.showSaved = function () {
+        var newItems = $resource('/api/new/items', {saved :true, size: $scope.size}, {
+            approve: { method: 'POST' }
+        });
+        $scope.items = newItems.query();
+    };
 
-    var newItems = $resource('/api/new/items', {}, {
-        approve: {method:'POST'}
-    });
-    $scope.items = newItems.query();
+    $scope.save = function (item) {
+        $scope.doingWork = true;
+        item.$save({}, function (parameters, aa, ff) {
+            $scope.doingWork = false;
+            debugger;
+        }, function(parameters, aa,ff) {
+            $scope.doingWork = false;
+            debugger;
+        });
+    };
 }
