@@ -32,8 +32,6 @@ namespace Binah.Infrastructure.RavenDB
 
 		private static void SetupConventions(DocumentConvention conventions)
 		{
-			var generator = new MultiTypeHiLoKeyGenerator(Store, 1);
-			conventions.DocumentKeyGenerator = entity => generator.GenerateDocumentKey(conventions, entity);
 		}
 
 		public static void Shutdown()
