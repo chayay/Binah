@@ -145,7 +145,7 @@
     <Content Include="css\siddur.css" />
     <Content Include="css\layout.css" />
     <Content Include="css\menus.css" />
-    <Content Include="css\normalize.css" />
+    <Content Include="css\libs\notmalize\normalize.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -177,6 +177,46 @@
     <Content Include="fonts\ezrasilsr-webfont.eot" />
     <Content Include="fonts\ezrasilsr-webfont.ttf" />
     <Content Include="fonts\ezrasilsr-webfont.woff" />
+    <Content Include="css\libs\TwitterBootstrap\wells.less" />
+    <Content Include="css\libs\TwitterBootstrap\variables.less" />
+    <Content Include="css\libs\TwitterBootstrap\utilities.less" />
+    <Content Include="css\libs\TwitterBootstrap\type.less" />
+    <Content Include="css\libs\TwitterBootstrap\tooltip.less" />
+    <Content Include="css\libs\TwitterBootstrap\thumbnails.less" />
+    <Content Include="css\libs\TwitterBootstrap\tables.less" />
+    <Content Include="css\libs\TwitterBootstrap\sprites.less" />
+    <Content Include="css\libs\TwitterBootstrap\scaffolding.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive-utilities.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive-navbar.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive-768px-979px.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive-767px-max.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive-1200px-min.less" />
+    <Content Include="css\libs\TwitterBootstrap\responsive.less" />
+    <Content Include="css\libs\TwitterBootstrap\reset.less" />
+    <Content Include="css\libs\TwitterBootstrap\progress-bars.less" />
+    <Content Include="css\libs\TwitterBootstrap\popovers.less" />
+    <Content Include="css\libs\TwitterBootstrap\pagination.less" />
+    <Content Include="css\libs\TwitterBootstrap\pager.less" />
+    <Content Include="css\libs\TwitterBootstrap\navs.less" />
+    <Content Include="css\libs\TwitterBootstrap\navbar.less" />
+    <Content Include="css\libs\TwitterBootstrap\modals.less" />
+    <Content Include="css\libs\TwitterBootstrap\mixins.less" />
+    <Content Include="css\libs\TwitterBootstrap\layouts.less" />
+    <Content Include="css\libs\TwitterBootstrap\labels-badges.less" />
+    <Content Include="css\libs\TwitterBootstrap\hero-unit.less" />
+    <Content Include="css\libs\TwitterBootstrap\grid.less" />
+    <Content Include="css\libs\TwitterBootstrap\forms.less" />
+    <Content Include="css\libs\TwitterBootstrap\dropdowns.less" />
+    <Content Include="css\libs\TwitterBootstrap\component-animations.less" />
+    <Content Include="css\libs\TwitterBootstrap\code.less" />
+    <Content Include="css\libs\TwitterBootstrap\close.less" />
+    <Content Include="css\libs\TwitterBootstrap\carousel.less" />
+    <Content Include="css\libs\TwitterBootstrap\buttons.less" />
+    <Content Include="css\libs\TwitterBootstrap\button-groups.less" />
+    <Content Include="css\libs\TwitterBootstrap\breadcrumbs.less" />
+    <Content Include="css\libs\TwitterBootstrap\bootstrap.less" />
+    <Content Include="css\libs\TwitterBootstrap\alerts.less" />
+    <Content Include="css\libs\TwitterBootstrap\accordion.less" />
     <None Include="js\libs\jquery\jquery.intellisense.js">
       <DependentUpon>jquery.js</DependentUpon>
     </None>
@@ -214,6 +254,7 @@
     <Content Include="js\libs\underscore\underscore.min.js">
       <DependentUpon>underscore.js</DependentUpon>
     </Content>
+    <Content Include="js\test.js" />
     <Content Include="js\uiAppCache.js" />
     <Content Include="js\uiNetwork.js" />
     <Content Include="js\_references.js" />
@@ -233,6 +274,7 @@
     <Content Include="js\libs\angular\i18n\angular-locale_en.js" />
     <Content Include="js\libs\angular\i18n\angular-locale_he-il.js" />
     <Content Include="js\libs\angular\i18n\angular-locale_he.js" />
+    <Content Include="js\libs\lesscss\less.min.js" />
     <Content Include="templates\newItems.html" />
     <Content Include="templates\siddur.html" />
     <Content Include="templates\siddurParagraphs.html" />

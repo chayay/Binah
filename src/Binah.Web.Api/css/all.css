@@ -6,7 +6,7 @@
 */
 
 /* Third party helper libraries */
-@import url("normalize.css");
+@import url("libs/notmalize/normalize.css");
 
 /* Custom themes */
 @import url("theme.css");
