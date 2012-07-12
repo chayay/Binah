@@ -40,7 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TefillahResolvers\ShacharitResolver.cs" />
+    <Compile Include="TefillahBuilders\AmidahBuilder.cs" />
+    <Compile Include="TefillahBuilders\KiddushBuilder.cs" />
+    <Compile Include="TefillahBuilders\MinchaBuilder.cs" />
+    <Compile Include="TefillahBuilders\ShacharitBuilder.cs" />
+    <Compile Include="TefillahResolvers\ShabbatResolver.cs" />
+    <Compile Include="TefillahResolvers\TachanunResolver.cs" />
+    <Compile Include="TefillahBuilders\TefillahBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

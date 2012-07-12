@@ -1,8 +1,8 @@
-﻿namespace Binah.Siddur.TefillahResolvers
+namespace Binah.Siddur.TefillahBuilders
 {
-	public class ShacharitResolver
+	public class ShacharitBuilder : TefillahBuilder
 	{
-		public ShacharitResolver()
+		public ShacharitBuilder()
 		{
 			var snippets = new[]
 			{
