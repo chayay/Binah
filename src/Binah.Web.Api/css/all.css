@@ -5,9 +5,6 @@
 	https://developers.google.com/speed/docs/best-practices/rtt
 */
 
-/* Third party helper libraries */
-@import url("libs/notmalize/normalize.css");
-
 /* Custom themes */
 @import url("theme.css");
 @import url("menus.css");

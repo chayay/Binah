@@ -217,6 +217,7 @@
     <Content Include="css\libs\TwitterBootstrap\bootstrap.less" />
     <Content Include="css\libs\TwitterBootstrap\alerts.less" />
     <Content Include="css\libs\TwitterBootstrap\accordion.less" />
+    <Content Include="css\all.less" />
     <None Include="js\libs\jquery\jquery.intellisense.js">
       <DependentUpon>jquery.js</DependentUpon>
     </None>
