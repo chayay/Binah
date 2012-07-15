@@ -12,10 +12,9 @@ namespace Binah.Web.Api
 
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			CommonSetup.Setup();
 
 			DocumentStoreHolder.Initialize();
-
-			CommonSetup.Setup();
 		}
 	}
 }
