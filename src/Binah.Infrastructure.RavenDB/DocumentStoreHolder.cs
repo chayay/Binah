@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using Binah.Core.Models;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
@@ -32,6 +33,7 @@ namespace Binah.Infrastructure.RavenDB
 
 		private static void SetupConventions(DocumentConvention conventions)
 		{
+			conventions.RegisterIdConvention<SiddurSnippet>((commands, snippet) => string.Format("{0}/{1}", conventions.GetTypeTagName(snippet.GetType()), snippet.Slug));
 		}
 
 		public static void Shutdown()

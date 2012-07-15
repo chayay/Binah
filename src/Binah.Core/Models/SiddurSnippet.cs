@@ -11,6 +11,8 @@ namespace Binah.Core.Models
 		public DateTimeOffset CreationDate { get; set; }
 		public int Revision { get; set; }
 		public string Comment { get; set; }
+		
+		public string Slug { get; set; }
 	}
 
 	[Flags]
