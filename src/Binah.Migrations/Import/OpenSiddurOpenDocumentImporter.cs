@@ -125,7 +125,7 @@ namespace Binah.Migrations.Import
 					session.Store(new SiddurSnippet
 					{
 						Id = "rawImport/SiddurSnippet/",
-						Content = item,
+						Content = item.Trim(),
 						CreationDate = DateTimeOffset.Now,
 						Revision = 1,
 						Type = SiddurType.TorahOr,
