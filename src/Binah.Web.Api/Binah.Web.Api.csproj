@@ -144,7 +144,6 @@
     <Compile Include="ViewModel\NewSiddurParagraph.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\all.css" />
     <Content Include="css\fonts.css" />
     <Content Include="css\siddur.css" />
     <Content Include="css\layout.css" />
