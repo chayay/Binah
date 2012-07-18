@@ -135,7 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbstractApiController.cs" />
-    <Compile Include="Controllers\NewItemsController.cs" />
+    <Compile Include="Controllers\SiddurController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

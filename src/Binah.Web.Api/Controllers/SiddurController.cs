@@ -11,21 +11,17 @@ using Raven.Client.Linq;
 
 namespace Binah.Web.Api.Controllers
 {
-	public class NewItemsController : AbstractApiController
+	public class SiddurController : AbstractApiController
 	{
 		[GET("api/new/items")]
-		public NewSiddurParagraph[] Get(bool? saved, int size = 24)
+		public NewSiddurParagraph[] Get(int skip = 0)
 		{
-			var itemsQ = RavenSession.Query<SiddurSnippet>()
-				.Customize(x => x.WaitForNonStaleResultsAsOfLastWrite());
-	
-			if (saved != true)
-			{
-				itemsQ = itemsQ.Where(item => item.Id.StartsWith("rawImport/SiddurSnippet/"));
-			}
-
-			var items = itemsQ.OrderBy(item => item.CreationDate)
-				.Take(size)
+			var items = RavenSession.Query<SiddurSnippet>()
+				.Customize(x => x.WaitForNonStaleResultsAsOfLastWrite())
+				.Where(item => item.Id.StartsWith("rawImport/SiddurSnippet/"))
+				.OrderBy(item => item.CreationDate)
+				.Skip(skip)
+				.Take(24)
 				.ToArray();
 				
 			return items

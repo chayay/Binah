@@ -27,7 +27,7 @@ angular.module('BinahApp', ['ngResource', 'ngSanitize']).controller('AppCtrl', f
     $routeProvider.when('/siddur/paragraphs', {
         templateUrl: '/templates/siddurParagraphs.html',
         controller: SiddurParagraphsCtrl
-    }).when('/new/items', {
+    }).when('/siddur', {
         templateUrl: '/templates/newItems.html',
         controller: NewItemsCtrl
     }).otherwise({
@@ -63,7 +63,7 @@ function NewItemsCtrl($scope, $routeParams, $resource, $http) {
     $scope.size = 24;
    
     $scope.showNew = function() {
-        var newItems = $resource('/api/new/items', { size: $scope.size }, {
+        var newItems = $resource('/api/siddur', { size: $scope.size }, {
             approve: { method: 'POST' }
         });
         $scope.items = newItems.query();
