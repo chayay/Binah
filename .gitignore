@@ -10,3 +10,6 @@ _[Ss]cripts
 *.exe
 *.dll
 *.nupkg
+
+# Ignore JetBrains WebStorm files
+src/*/.idea/*
