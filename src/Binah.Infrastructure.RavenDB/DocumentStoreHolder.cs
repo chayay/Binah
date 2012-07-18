@@ -9,16 +9,16 @@ namespace Binah.Infrastructure.RavenDB
 {
 	public class DocumentStoreHolder
 	{
-		private static IDocumentStore _store;
+		private static IDocumentStore store;
 		public static IDocumentStore Store
 		{
 			get
 			{
-				if (_store == null)
+				if (store == null)
 					throw new InvalidOperationException("Document store was not initialized yet.");
-				return _store;
+				return store;
 			}
-			set { _store = value; }
+			set { store = value; }
 		}
 
 		public static void Initialize()
@@ -38,8 +38,8 @@ namespace Binah.Infrastructure.RavenDB
 
 		public static void Shutdown()
 		{
-			if (_store != null && !_store.WasDisposed)
-				_store.Dispose();
+			if (store != null && !store.WasDisposed)
+				store.Dispose();
 		}
 	}
 }
