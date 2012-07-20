@@ -112,25 +112,41 @@ namespace Binah.Migrations.Import
 			if (shouldIgnoreItems.Any())
 				File.WriteAllLines(string.Format("ShouldIgnoreItems{0}.txt", name), shouldIgnoreItems.Distinct(), Encoding.UTF8);
 
-			AddItemsToDatabase(resultItmes, version);
+			var snippets = SetItemsIds(resultItmes, version);
+			AddItemsToDatabase(snippets);
 			Console.WriteLine("{0} items imported.", resultItmes.Count);
 		}
 
-		private void AddItemsToDatabase(List<string> items, string version)
+		private List<SiddurSnippet> SetItemsIds(List<string> items, string version)
+		{
+			var snippets = new List<SiddurSnippet>();
+			foreach (var item in items)
+			{
+				var siddurSnippet = new SiddurSnippet
+				{
+					Content = item.Trim(),
+					CreationDate = DateTimeOffset.Now,
+					Revision = 1,
+					Type = SiddurType.TorahOr,
+					Comment = string.Format("Imported from the OpenSiddur Project. Version: '{0}'.", version),
+				};
+				Thread.Sleep(10);
+				snippets.Add(siddurSnippet);
+			}
+			return snippets;
+		}
+
+		private void AddItemsToDatabase(List<SiddurSnippet> snippets)
 		{
 			using (var session = DocumentStoreHolder.Store.OpenSession())
 			{
-				foreach (var item in items)
+				foreach (var siddurSnippet in snippets)
 				{
-					session.Store(new SiddurSnippet
+					if (siddurSnippet.Id == null)
 					{
-						Id = "rawImport/SiddurSnippet/",
-						Content = item.Trim(),
-						CreationDate = DateTimeOffset.Now,
-						Revision = 1,
-						Type = SiddurType.TorahOr,
-						Comment = string.Format("Imported from the OpenSiddur Project. Version: '{0}'.", version),
-					});
+						siddurSnippet.Id = "rawImport/SiddurSnippet/";
+					}
+					session.Store(siddurSnippet);
 					Thread.Sleep(10);
 				}
 				session.SaveChanges();
