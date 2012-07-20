@@ -146,7 +146,7 @@
   <ItemGroup>
     <Content Include="css\fonts.css" />
     <Content Include="css\siddur.css" />
-    <Content Include="css\layout.css" />
+    <Content Include="css\mobile.css" />
     <Content Include="css\menus.css" />
     <Content Include="css\libs\notmalize\normalize.css" />
     <Content Include="css\theme.css" />
