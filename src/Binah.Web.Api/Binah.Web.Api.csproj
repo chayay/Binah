@@ -144,144 +144,7 @@
     <Compile Include="ViewModel\NewSiddurParagraph.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\fonts.css" />
-    <Content Include="css\siddur.css" />
-    <Content Include="css\mobile.css" />
-    <Content Include="css\menus.css" />
-    <Content Include="css\libs\notmalize\normalize.css" />
-    <Content Include="css\theme.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
-    <Content Include="js\app\app.js" />
-    <Content Include="js\app\controllers.js" />
-    <Content Include="js\app\directives.js" />
-    <Content Include="js\app\filters.js" />
-    <Content Include="js\app\router.js" />
-    <Content Include="js\app\services.js" />
-    <Content Include="js\libs\appCache.js" />
-    <Content Include="js\libs\backbone\backbone.js" />
-    <Content Include="js\libs\backbone\backbone.min.js">
-      <DependentUpon>backbone.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\DiffMatchPatch\diffMatchPatch.js" />
-    <Content Include="js\libs\DiffMatchPatch\diffMatchPatch.min.js">
-      <DependentUpon>diffMatchPatch.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\dust\dust-core.js" />
-    <Content Include="js\libs\dust\dust-core.min.js">
-      <DependentUpon>dust-core.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\dust\dust-full.js" />
-    <Content Include="js\libs\dust\dust-full.min.js">
-      <DependentUpon>dust-full.js</DependentUpon>
-    </Content>
-    <Content Include="fonts\ezrasilsr-webfont.svg" />
-    <Content Include="fonts\ezrasilsr-webfont.eot" />
-    <Content Include="fonts\ezrasilsr-webfont.ttf" />
-    <Content Include="fonts\ezrasilsr-webfont.woff" />
-    <Content Include="css\libs\TwitterBootstrap\wells.less" />
-    <Content Include="css\libs\TwitterBootstrap\variables.less" />
-    <Content Include="css\libs\TwitterBootstrap\utilities.less" />
-    <Content Include="css\libs\TwitterBootstrap\type.less" />
-    <Content Include="css\libs\TwitterBootstrap\tooltip.less" />
-    <Content Include="css\libs\TwitterBootstrap\thumbnails.less" />
-    <Content Include="css\libs\TwitterBootstrap\tables.less" />
-    <Content Include="css\libs\TwitterBootstrap\sprites.less" />
-    <Content Include="css\libs\TwitterBootstrap\scaffolding.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive-utilities.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive-navbar.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive-768px-979px.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive-767px-max.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive-1200px-min.less" />
-    <Content Include="css\libs\TwitterBootstrap\responsive.less" />
-    <Content Include="css\libs\TwitterBootstrap\reset.less" />
-    <Content Include="css\libs\TwitterBootstrap\progress-bars.less" />
-    <Content Include="css\libs\TwitterBootstrap\popovers.less" />
-    <Content Include="css\libs\TwitterBootstrap\pagination.less" />
-    <Content Include="css\libs\TwitterBootstrap\pager.less" />
-    <Content Include="css\libs\TwitterBootstrap\navs.less" />
-    <Content Include="css\libs\TwitterBootstrap\navbar.less" />
-    <Content Include="css\libs\TwitterBootstrap\modals.less" />
-    <Content Include="css\libs\TwitterBootstrap\mixins.less" />
-    <Content Include="css\libs\TwitterBootstrap\layouts.less" />
-    <Content Include="css\libs\TwitterBootstrap\labels-badges.less" />
-    <Content Include="css\libs\TwitterBootstrap\hero-unit.less" />
-    <Content Include="css\libs\TwitterBootstrap\grid.less" />
-    <Content Include="css\libs\TwitterBootstrap\forms.less" />
-    <Content Include="css\libs\TwitterBootstrap\dropdowns.less" />
-    <Content Include="css\libs\TwitterBootstrap\component-animations.less" />
-    <Content Include="css\libs\TwitterBootstrap\code.less" />
-    <Content Include="css\libs\TwitterBootstrap\close.less" />
-    <Content Include="css\libs\TwitterBootstrap\carousel.less" />
-    <Content Include="css\libs\TwitterBootstrap\buttons.less" />
-    <Content Include="css\libs\TwitterBootstrap\button-groups.less" />
-    <Content Include="css\libs\TwitterBootstrap\breadcrumbs.less" />
-    <Content Include="css\libs\TwitterBootstrap\bootstrap.less" />
-    <Content Include="css\libs\TwitterBootstrap\alerts.less" />
-    <Content Include="css\libs\TwitterBootstrap\accordion.less" />
-    <Content Include="css\all.less" />
-    <None Include="js\libs\jquery\jquery.intellisense.js">
-      <DependentUpon>jquery.js</DependentUpon>
-    </None>
-    <Content Include="js\libs\jquery\jquery.js" />
-    <Content Include="js\libs\jquery\jquery.min.js">
-      <DependentUpon>jquery.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\network.js" />
-    <Content Include="js\libs\require\cs.js" />
-    <Content Include="js\libs\require\domReady.js" />
-    <Content Include="js\libs\require\domReady.min.js">
-      <DependentUpon>domReady.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\require\i18n.js" />
-    <Content Include="js\libs\require\i18n.min.js">
-      <DependentUpon>i18n.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\require\order.js" />
-    <Content Include="js\libs\require\order.min.js">
-      <DependentUpon>order.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\require\r.js" />
-    <Content Include="js\libs\require\require.js" />
-    <Content Include="js\libs\require\require.min.js">
-      <DependentUpon>require.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\require\text.js" />
-    <Content Include="js\libs\require\text.min.js">
-      <DependentUpon>text.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\require\use.js" />
-    <Content Include="js\libs\springy\springy.js" />
-    <Content Include="js\libs\springy\springyui.js" />
-    <Content Include="js\libs\underscore\underscore.js" />
-    <Content Include="js\libs\underscore\underscore.min.js">
-      <DependentUpon>underscore.js</DependentUpon>
-    </Content>
-    <Content Include="js\test.js" />
-    <Content Include="js\uiAppCache.js" />
-    <Content Include="js\uiNetwork.js" />
-    <Content Include="js\_references.js" />
-    <Content Include="js\libs\angular\angular-resource.js" />
-    <Content Include="js\libs\angular\angular-resource.min.js">
-      <DependentUpon>angular-resource.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\angular\angular-sanitize.js" />
-    <Content Include="js\libs\angular\angular-sanitize.min.js">
-      <DependentUpon>angular-sanitize.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\angular\angular.js" />
-    <Content Include="js\libs\angular\angular.min.js">
-      <DependentUpon>angular.js</DependentUpon>
-    </Content>
-    <Content Include="js\libs\angular\i18n\angular-locale_en-us.js" />
-    <Content Include="js\libs\angular\i18n\angular-locale_en.js" />
-    <Content Include="js\libs\angular\i18n\angular-locale_he-il.js" />
-    <Content Include="js\libs\angular\i18n\angular-locale_he.js" />
-    <Content Include="js\libs\lesscss\less.min.js" />
-    <Content Include="templates\newItems.html" />
-    <Content Include="templates\siddur.html" />
-    <Content Include="templates\siddurParagraphs.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -303,9 +166,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="imgs\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
