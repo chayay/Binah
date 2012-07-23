@@ -2,13 +2,10 @@
     <header>
         <h1>סידור</h1>
     </header>
-    <a ng-click="showNew()">New</a>
-    <a ng-click="showSaved()">Saved</a>
     <div>
         {{doingWork}}
         <br/>
         <hr/>
-        <input type="number" ng-model="size">
     </div>
     <section ng-repeat="item in items">
         <div>
@@ -28,5 +25,8 @@
             <button ng-click="item.$approve()">Approve</button>
         </div>
         <hr>
+        
+
+        <button ng-click="load()">Load More</button>
     </section>
 </article>

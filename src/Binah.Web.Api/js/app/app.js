@@ -36,9 +36,10 @@ angular.module('BinahApp', ['ngResource', 'ngSanitize']).controller('AppCtrl', f
 
     $locationProvider.html5Mode(true);
 }).provider({
-
+    // log.error service instead
     $exceptionHandler: function () {
         var handler = function (exception, cause) {
+            document.write(exception);
             alert(exception);
         };
 
@@ -60,23 +61,20 @@ SiddurParagraphsCtrl.$inject = ['$scope', '$routeParams', '$resource'];
 function NewItemsCtrl($scope, $routeParams, $resource, $http) {
     $scope.name = "SiddurCtrl";
     $scope.params = $routeParams;
-    $scope.size = 24;
-   
-    $scope.showNew = function() {
+    $scope.skip = 0;
+    $scope.items = [];
+    
+    $scope.load = function () {
         var newItems = $resource('/api/siddur', { size: $scope.size }, {
             approve: { method: 'POST' }
         });
-        $scope.items = newItems.query();
-    };
-    $scope.showNew();
-    
-    $scope.showSaved = function () {
-        var newItems = $resource('/api/new/items', {saved :true, size: $scope.size}, {
-            approve: { method: 'POST' }
+        newItems.query({ skip: $scope.skip }, function() {
+            alert("d");
         });
-        $scope.items = newItems.query();
+        $scope.skip += 24;
     };
-
+    $scope.load();
+    
     $scope.save = function (item) {
         $scope.doingWork = true;
         item.$save({}, function (parameters, aa, ff) {
