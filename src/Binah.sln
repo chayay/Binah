@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{01539B
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binah.Client.Web.Tests", "Binah.Client.Web.Tests\Binah.Client.Web.Tests.csproj", "{DED98938-6F6B-4A5A-9A40-E4444EBE2BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCEFDAE-DC17-451D-8FC0-C4B23A42A3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED98938-6F6B-4A5A-9A40-E4444EBE2BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED98938-6F6B-4A5A-9A40-E4444EBE2BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED98938-6F6B-4A5A-9A40-E4444EBE2BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED98938-6F6B-4A5A-9A40-E4444EBE2BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF63B603-C713-400A-BA4C-5F2E7B249797}.Release|Any CPU.ActiveCfg = Release|Any CPU
