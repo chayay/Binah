@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Raven.Client;
 
 namespace Binah.Infrastructure.RavenDB.Development
@@ -20,23 +21,30 @@ namespace Binah.Infrastructure.RavenDB.Development
 			this.store = store;
 		}
 
-		public void LoadAndSave<T>()
+		public void LoadAndSave<T>(int batchSize = 1024, Action<T> action = null)
 		{
 			using (var session = store.OpenSession())
 			{
 				int skip = 0;
-				const int take = 1024;
 				while (true)
 				{
-					var builds = session.Query<T>()
+					var items = session.Query<T>()
 						.Skip(skip)
-						.Take(take)
+						.Take(batchSize)
 						.ToList();
-					skip += builds.Count;
+					skip += items.Count;
+
+					if (action != null)
+					{
+						foreach (var item in items)
+						{
+							action(item);
+						}
+					}
 
 					session.SaveChanges();
 
-					if (builds.Count == 0)
+					if (items.Count == 0)
 						break;
 				}
 			}
