@@ -47,12 +47,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\fonts.css" />
+    <Content Include="css\fonts.less" />
     <Content Include="css\libs\notmalize\normalize.css" />
-    <Content Include="css\menus.css" />
-    <Content Include="css\mobile.css" />
-    <Content Include="css\siddur.css" />
-    <Content Include="css\theme.css" />
+    <Content Include="css\menus.less" />
+    <Content Include="css\mobile.less" />
+    <Content Include="css\siddur.less" />
+    <Content Include="css\theme.less" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\ezrasilsr-webfont.svg" />
     <Content Include="index.html" />

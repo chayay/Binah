@@ -10,25 +10,21 @@ function AppCtrl($scope, $route, $routeParams, $location) {
 }
 AppCtrl.$inject = ['$scope', '$route', '$routeParams', '$location'];
 
-function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http) {
+function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
     $scope.skip = 0;
     $scope.items = [];
-
-    $http.get('http://localhost:30001/api/siddur').
-        success(function(data, status, headers, config) {
-            alert('success;');
-        }).error(function(data, status, headers, config) {
-            alert('error;');
-        });
-    
-   /* $scope.load = function () {
-        var snippets = $resource('http://localhost:port/api/siddur', { port: ':30001' });
-        snippets.query({ skip: $scope.skip }, function () {
-            alert("d");
-        });
-        $scope.skip += 24;
+    $scope.load = function() {
+        $http.get(strings.apiUrl + '/api/siddur?skip=' + $scope.skip).
+            success(function(data, status, headers, config) {
+                // TODO: should I optimize this with $scope.items.push()?
+                $scope.items = $scope.items.concat(data);
+                $scope.skip += 24;
+            }).
+            error(function(data, status, headers, config) {
+                document.getElementById('debug').innerText = 'error';
+            });
     };
-    $scope.load();*/
+    $scope.load();
 
     $scope.save = function (item) {
         $scope.doingWork = true;
@@ -41,7 +37,7 @@ function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http) {
         });
     };
 }
-SiddurParagraphsCtrl.$inject = ['$scope', '$routeParams', '$resource', '$http'];
+SiddurParagraphsCtrl.$inject = ['$scope', '$routeParams', '$resource', '$http', 'strings'];
 
 function SiddurCtrl($scope, $routeParams, $resource, $http) {
     $scope.name = "SiddurCtrl";

@@ -2,11 +2,8 @@
     <header>
         <h1>סידור</h1>
     </header>
-    
+    Skip: {{skip}}
     <section ng-repeat="item in items">
-        <div>
-            <button ng-click="item.$approve()">Approve</button>
-        </div>
         <div>
             <label>
                 <span>ID</span>
@@ -15,12 +12,8 @@
         </div>
         <div ng-model="item.Id" ></div>
         <div>{{item.Id}}</div>
-        <p class="siddurParagraph" ng-model="item.Content" lang="he" contenteditable="true">{{item.Content}}</p>
-        {{item.Content}}
-        <div>
-            <button ng-click="item.$approve()">Approve</button>
-        </div>
-        
-        <button ng-click="load()">Load More</button>
+        <p class="siddurParagraph" ng-model="item.Content" lang="he" contenteditable="false">{{item.Content}}</p>
     </section>
+    
+    <button class="btn btn-large btn-primary" ng-click="load()">Load More</button>
 </article>
