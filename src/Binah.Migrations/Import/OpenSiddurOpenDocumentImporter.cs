@@ -22,6 +22,8 @@ namespace Binah.Migrations.Import
 		public static readonly Regex BibliographyReference = new Regex(@"^\d*\w* \d+:\d+(-\d+)?$", RegexOptions.Compiled);
 		private readonly List<string> ignoredItems = new List<string>();
 		private readonly List<string> shouldIgnoreItems = new List<string>();
+		private List<SiddurSnippet> snippets = new List<SiddurSnippet>();
+		int importedSnippetsCount;
 
 		public void Import()
 		{
@@ -40,6 +42,9 @@ namespace Binah.Migrations.Import
 				"TikkunHatzot",
 			}
 				.ForEach(ImportFile);
+
+			ConsolidateSnippets();
+			AddItemsToDatabase(snippets);
 		}
 
 		private void ImportFile(string name)
@@ -112,24 +117,61 @@ namespace Binah.Migrations.Import
 			if (shouldIgnoreItems.Any())
 				File.WriteAllLines(string.Format("ShouldIgnoreItems{0}.txt", name), shouldIgnoreItems.Distinct(), Encoding.UTF8);
 
-			var snippets = TurnToEntities(resultItmes, version);
-			ConsolidateItems(snippets);
-			AddItemsToDatabase(snippets);
+			snippets.AddRange(TurnToEntities(resultItmes, version));
 			Console.WriteLine("{0} items imported.", resultItmes.Count);
 		}
 
-		private void ConsolidateItems(List<SiddurSnippet> snippets)
+		private void ConsolidateSnippets()
 		{
-			for (int i = 0; i < snippets.Count; i++)
+			var originalCount = snippets.Count;
+			for (int i = 0; i < originalCount; i++)
 			{
 				var siddurSnippet = snippets[i];
+				switch (DetermineWhatToDoWithItem(i + 1))
+				{
+					case ItemConsolidateAction.Remove:
+						snippets[i] = null;
+						break;
+					case ItemConsolidateAction.MergeWithPrevious:
+						var prevSnippet = snippets
+							.Where(snippet => snippet != null)
+							.Select(snippet => new {Index = int.Parse(snippet.Id), Snippet = snippet})
+							.Where(arg => arg.Index < i)
+							.OrderByDescending(arg => arg.Index)
+							.Select(x => x.Snippet )
+							.First();
+
+						prevSnippet.Content += " " + snippets[i].Content;
+						snippets[i] = null;
+						break;
+				}
 			}
+
+			snippets = snippets.Where(snippet => snippet != null).ToList();
+		}
+
+		private ItemConsolidateAction DetermineWhatToDoWithItem(int i)
+		{
+			if (i == 3)
+				return ItemConsolidateAction.Remove;
+
+			if (i >= 13 && i <= 34) // Ashrei
+				return ItemConsolidateAction.MergeWithPrevious;
+
+			if (i == 47)
+				return ItemConsolidateAction.MergeWithPrevious;
+
+			if (i >= 49 && i <= 50)
+				return ItemConsolidateAction.MergeWithPrevious;
+
+			if (i >= 54 && i <= 55)
+				return ItemConsolidateAction.MergeWithPrevious;
+
+			return ItemConsolidateAction.LeaveAsIs;
 		}
 
 		private List<SiddurSnippet> TurnToEntities(List<string> items, string version)
 		{
-			int importedSnippetsCount = 0;
-
 			var snippets = new List<SiddurSnippet>();
 			foreach (var item in items)
 			{
@@ -149,15 +191,18 @@ namespace Binah.Migrations.Import
 
 		private void AddItemsToDatabase(List<SiddurSnippet> snippets)
 		{
-			using (var session = DocumentStoreHolder.Store.OpenSession())
+			using (var session = DocumentStoreHolder.OpenSession())
 			{
 				foreach (var siddurSnippet in snippets)
 				{
-					siddurSnippet.Id = null;
 					siddurSnippet.CreationDate = DateTimeOffset.Now;
 
 					if (siddurSnippet.Slug == null)
-						siddurSnippet.Id = "rawImport/SiddurSnippet/";
+						siddurSnippet.Id = "rawImport/SiddurSnippet/" + siddurSnippet.Id;
+					else
+					{
+						siddurSnippet.Id = null;
+					}
 
 					session.Store(siddurSnippet);
 					Thread.Sleep(10);
@@ -187,5 +232,12 @@ namespace Binah.Migrations.Import
 
 			return false;
 		}
+	}
+
+	internal enum ItemConsolidateAction
+	{
+		Remove,
+		LeaveAsIs,
+		MergeWithPrevious
 	}
 }

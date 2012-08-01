@@ -31,6 +31,13 @@ namespace Binah.Infrastructure.RavenDB
 			IndexCreation.CreateIndexes(Assembly.GetCallingAssembly(), Store);
 		}
 
+		public static IDocumentSession OpenSession()
+		{
+			var session = store.OpenSession();
+			session.Advanced.UseOptimisticConcurrency = true;
+			return session;
+		}
+
 		private static void SetupConventions(DocumentConvention conventions)
 		{
 			conventions.RegisterIdConvention<SiddurSnippet>((commands, snippet) => string.Format("{0}/{1}", conventions.GetTypeTagName(snippet.GetType()), snippet.Slug));
