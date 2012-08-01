@@ -13,7 +13,7 @@ AppCtrl.$inject = ['$scope', '$route', '$routeParams', '$location'];
 function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
     $scope.skip = 0;
     $scope.items = [];
-    $scope.load = function() {
+    $scope.loadMore = function () {
         $http.get(strings.apiUrl + '/api/siddur?skip=' + $scope.skip).
             success(function(data, status, headers, config) {
                 // TODO: should I optimize this with $scope.items.push()?
@@ -24,7 +24,7 @@ function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
                 document.getElementById('debug').innerText = 'error';
             });
     };
-    $scope.load();
+    $scope.loadMore();
 
     $scope.save = function (item) {
         $scope.doingWork = true;

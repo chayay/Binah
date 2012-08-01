@@ -1,4 +1,4 @@
-﻿<article>
+﻿<article when-scrolled="loadMore()">
     <header>
         <h1>סידור</h1>
     </header>
@@ -10,10 +10,8 @@
                 <input type="text" ng-model="item.Id" required ng-minlength="10">
             </label>
         </div>
-        <div ng-model="item.Id" ></div>
-        <div>{{item.Id}}</div>
         <p class="siddurParagraph" ng-model="item.Content" lang="he" contenteditable="false">{{item.Content}}</p>
     </section>
     
-    <button class="btn btn-large btn-primary" ng-click="load()">Load More</button>
+    <button class="btn btn-large btn-primary" ng-click="loadMore()">Load More</button>
 </article>
