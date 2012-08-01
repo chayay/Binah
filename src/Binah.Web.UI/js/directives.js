@@ -3,8 +3,8 @@
 /* Directives */
 
 
-angular.module('BinahApp.directives', []).
-    directive('contenteditable', ['$sanitize', function($sanitize) {
+angular.module('BinahApp.directives', [])
+    .directive('contenteditable', ['$sanitize', function($sanitize) {
         return {
             restrict: 'A',
             require: 'ngModel',
@@ -23,14 +23,15 @@ angular.module('BinahApp.directives', []).
                 });
             }
         };
-    }]);
-
-/*
-
- directive('contenteditable', ['$sanitize', function($sanitize) {
-        return function(scope, elm, attrs) {
-            elm.text(version);
+    }])
+    .directive('whenScrolled', function() {
+        return function (scope, elm, attr) {
+            var raw = elm[0];
+            angular.element(window).bind('scroll', function () {
+                var buffer = 100;
+                if ($(document).height() < buffer + $(window).height() + $(window).scrollTop()) {
+                    scope.$apply(attr.whenScrolled);
+                }
+            });
         };
-    }]);
-
-    */
+    });
