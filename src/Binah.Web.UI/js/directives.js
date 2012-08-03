@@ -27,6 +27,7 @@ angular.module('BinahApp.directives', [])
     .directive('whenScrolled', function() {
         return function (scope, elm, attr) {
             var raw = elm[0];
+            // TODO: Make sure to clean up the event when unloading the element.
             angular.element(window).bind('scroll', function () {
                 var buffer = 100;
                 if ($(document).height() < buffer + $(window).height() + $(window).scrollTop()) {
