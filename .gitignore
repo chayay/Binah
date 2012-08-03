@@ -4,7 +4,7 @@
 *.user
 *.[Cc]ache
 *[Rr]esharper*
-packages/*/
+src/packages/*/
 NuGet.exe
 _[Ss]cripts
 *.exe
