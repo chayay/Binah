@@ -41,22 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AttributeRouting, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.WebApi.2.4.0.0\lib\net40\AttributeRouting.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.WebApi.2.4.0.0\lib\net40\AttributeRouting.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web.Http, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.WebApi.2.4.0.0\lib\net40\AttributeRouting.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web.Http.WebHost, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AttributeRouting.WebApi.2.4.0.0\lib\net40\AttributeRouting.Web.Http.WebHost.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

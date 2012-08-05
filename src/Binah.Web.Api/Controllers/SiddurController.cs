@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AttributeRouting.Web.Http;
 using Binah.Core.Models;
 using Binah.Infrastructure.RavenDB;
 using Binah.Web.Api.ViewModel;
@@ -13,7 +12,6 @@ namespace Binah.Web.Api.Controllers
 {
 	public class SiddurController : AbstractApiController
 	{
-		[GET("api/new/items")]
 		public NewSiddurParagraph[] Get(int skip = 0)
 		{
 			var items = RavenSession.Query<SiddurSnippet>()
@@ -29,7 +27,6 @@ namespace Binah.Web.Api.Controllers
 				.ToArray();
 		}
 
-		[DELETE("api/new/items")]
 		public void Delete(string id)
 		{
 			var paragraph = RavenSession.Load<SiddurSnippet>(id);
@@ -48,7 +45,6 @@ namespace Binah.Web.Api.Controllers
 			RavenSession.Delete(paragraph);
 		}
 
-		[POST("api/new/items")]
 		public SiddurSnippet Post(NewSiddurParagraph input)
 		{
 			if (input.NewId.StartsWith("siddurSnippets") || input.NewId.Contains("/"))
