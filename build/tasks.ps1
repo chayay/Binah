@@ -1,7 +1,7 @@
 ﻿Include ".\build_utils.ps1"
 
 properties {
-	$base_dir  = resolve-path .
+	$base_dir  = Join-Path (resolve-path .) ..\
 	$bin_dir = "$base_dir\bin"
 	$src_dir = "$base_dir\src"
 	$config_dir = "$base_dir\config"
