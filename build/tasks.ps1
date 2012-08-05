@@ -1,7 +1,7 @@
 ﻿Include ".\build_utils.ps1"
 
 properties {
-	$base_dir  = Join-Path (resolve-path .) ..\
+	$base_dir  = Split-Path (resolve-path .) -parent
 	$bin_dir = "$base_dir\bin"
 	$src_dir = "$base_dir\src"
 	$config_dir = "$base_dir\config"
@@ -41,6 +41,13 @@ Task RunDB {
 	Copy-Item "$config_dir\RavenDB-DeveloperMachine.config" "$ravenServerFolder\Raven.Server.exe.config"
 	
 	$developerRavenProcess = Start-Process "$ravenServerFolder\Raven.Server.exe" "--config=$config_dir\RavenDB-DeveloperMachine.config" -PassThru
+}
+
+Task RunWebsite -Depends RunDB {
+	$iisExpress = "${Env:ProgramFiles(x86)}\IIS Express\iisexpress.exe"
+	
+	$apiWebsite = Start-Process "$iisExpress" "/trace:i /path:$src_dir\Binah.Web.Api /port:3001" -PassThru
+	$uiWebsite = Start-Process "$iisExpress" "/trace:i /path:$src_dir\Binah.Web.UI /port:3002" -PassThru
 }
 
 Task ExportData {

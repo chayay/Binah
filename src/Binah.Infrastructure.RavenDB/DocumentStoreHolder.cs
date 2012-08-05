@@ -23,7 +23,7 @@ namespace Binah.Infrastructure.RavenDB
 
 		public static void Initialize()
 		{
-			Store = new DocumentStore {Url = "http://localhost:8080", DefaultDatabase = "Binah"};
+			Store = new DocumentStore {Url = "http://localhost:3003", DefaultDatabase = "Binah"};
 			SetupConventions(Store.Conventions);
 
 			Store.Initialize();
