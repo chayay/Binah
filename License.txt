@@ -1,5 +1,5 @@
 Binah Project
-Copyright (C) 2012 Fitzchak Yitzchaki
+Copyright (c) 2012 Fitzchak Yitzchaki.  All rights reserved.
 ===================================================================
 
 This file is part of this program.
