@@ -2,11 +2,14 @@
 
 properties {
 	$base_dir  = Split-Path (resolve-path .) -parent
-	$bin_dir = "$base_dir\bin"
+	$buildArtifacts_dir = "$base_dir\bin"
 	$src_dir = "$base_dir\src"
 	$config_dir = "$base_dir\config"
 	$packages_dir = "$base_dir\src\packages"
 	$nuget_exe = "$src_dir\.nuget\NuGet.exe"
+	$sln_file = "$src_dir\Binah.sln"
+	
+	$configuration = "Release"
 }
 
 Task default -Depends Test
@@ -20,7 +23,10 @@ Task Init -depends Clean {
 }
 
 Task Compile -Depends Init {
-   "compile"
+	$msBuild = "$Env:WinDir\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
+	
+	Write-Host "Compiling code with '$configuration' configuration" -ForegroundColor Yellow
+	exec { &$msBuild "$sln_file" /p:OutDir="$buildArtifacts_dir\" /nodeReuse:false /p:Configuration=$configuration /p:Platform="Any CPU" /verbosity:minimal /fileLogger "/fileloggerparameters:LogFile=$buildArtifacts_dir\MSBuild.log;Verbosity=Normal;Encoding=UTF-8" }
 }
 
 Task Test -Depends Compile {
@@ -31,7 +37,7 @@ Task Release {
 	
 }
 
-Task RunDB {
+Task RunDB -Depends Compile {
 	$ravenServerPackageFolder = Get-ChildItem "$packages_dir\RavenDB.Server.*" | 
 										Sort-Object Name -Descending | 
 										Select-Object -First 1
@@ -51,7 +57,7 @@ Task RunWebsite -Depends RunDB {
 }
 
 Task ExportData {
-	$dump_dir = "$bin_dir\DataDumps"
+	$dump_dir = "$buildArtifacts_dir\DataDumps"
 	$dump_dir
 	New-Item $dump_dir -Type Directory -ErrorAction SilentlyContinue | Out-Null
 	
