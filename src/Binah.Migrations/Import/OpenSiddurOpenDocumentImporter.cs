@@ -22,33 +22,39 @@ namespace Binah.Migrations.Import
 		public static readonly Regex BibliographyReference = new Regex(@"^\d*\w* \d+:\d+(-\d+)?$", RegexOptions.Compiled);
 		private readonly List<string> ignoredItems = new List<string>();
 		private readonly List<string> shouldIgnoreItems = new List<string>();
-		private List<SiddurSnippet> snippets = new List<SiddurSnippet>();
+
 		int importedSnippetsCount;
 
 		public void Import()
 		{
 			new[]
 			{
-				"ShaharitMorning",
-				"ShaharitMusafShabbat",
-				"MinhahAfternoon",
-				"MinhahShabbatAfternoon",
-				"MaarivEvening",
-				"SefiratHaOmer",
-				"KiddushLevana",
-				"TheBedtimeShema",
-				"TheBlessingBook",
-				"TheShabbatBook",
-				"TikkunHatzot",
+				"PrayerForTravelers",
+				// "ShaharitMorning",
+				// "ShaharitMusafShabbat",
+				// "MinhahAfternoon",
+				// "MinhahShabbatAfternoon",
+				// "MaarivEvening",
+				// "SefiratHaOmer",
+				// "KiddushLevana",
+				// "TheBedtimeShema",
+				// "TheBlessingBook",
+				// "TheShabbatBook",
+				// "TikkunHatzot",
 			}
-				.ForEach(ImportFile);
-
-			ConsolidateSnippets();
-			AddItemsToDatabase(snippets);
+				.ForEach(file =>
+				{
+					importedSnippetsCount = 0;
+					var snippets = ImportFile(file);
+					snippets = ConsolidateSnippets(snippets, file);
+					AddItemsToDatabase(snippets);
+				});
 		}
 
-		private void ImportFile(string name)
+		private List<SiddurSnippet> ImportFile(string name)
 		{
+			var snippets = new List<SiddurSnippet>();
+
 			ignoredItems.Clear();
 			shouldIgnoreItems.Clear();
 
@@ -119,15 +125,17 @@ namespace Binah.Migrations.Import
 
 			snippets.AddRange(TurnToEntities(resultItmes, version));
 			Console.WriteLine("{0} items imported.", resultItmes.Count);
+
+			return snippets;
 		}
 
-		private void ConsolidateSnippets()
+		private List<SiddurSnippet> ConsolidateSnippets(List<SiddurSnippet> snippets, string file)
 		{
 			var originalCount = snippets.Count;
 			for (int i = 0; i < originalCount; i++)
 			{
 				var siddurSnippet = snippets[i];
-				switch (DetermineWhatToDoWithItem(i + 1))
+				switch (DetermineWhatToDoWithItem(i + 1, file))
 				{
 					case ItemConsolidateAction.Remove:
 						snippets[i] = null;
@@ -148,24 +156,36 @@ namespace Binah.Migrations.Import
 			}
 
 			snippets = snippets.Where(snippet => snippet != null).ToList();
+			return snippets;
 		}
 
-		private ItemConsolidateAction DetermineWhatToDoWithItem(int i)
+		private ItemConsolidateAction DetermineWhatToDoWithItem(int i, string file)
 		{
-			if (i == 3)
-				return ItemConsolidateAction.Remove;
+			switch (file)
+			{
+				case "PrayerForTravelers":
+					if (i >= 5 && i <= 8)
+						return ItemConsolidateAction.Remove;
+					
+					break;
+				case "ShaharitMorning":
+					if (i == 3)
+						return ItemConsolidateAction.Remove;
 
-			if (i >= 13 && i <= 34) // Ashrei
-				return ItemConsolidateAction.MergeWithPrevious;
+					if (i >= 13 && i <= 34) // Ashrei
+						return ItemConsolidateAction.MergeWithPrevious;
 
-			if (i == 47)
-				return ItemConsolidateAction.MergeWithPrevious;
+					if (i == 47)
+						return ItemConsolidateAction.MergeWithPrevious;
 
-			if (i >= 49 && i <= 50)
-				return ItemConsolidateAction.MergeWithPrevious;
+					if (i >= 49 && i <= 50)
+						return ItemConsolidateAction.MergeWithPrevious;
 
-			if (i >= 54 && i <= 55)
-				return ItemConsolidateAction.MergeWithPrevious;
+					if (i >= 54 && i <= 55)
+						return ItemConsolidateAction.MergeWithPrevious;
+
+					break;
+			}
 
 			return ItemConsolidateAction.LeaveAsIs;
 		}
