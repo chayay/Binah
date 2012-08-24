@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Binah.Core.Models;
 using Binah.Infrastructure.RavenDB;
-using Binah.Web.Api.ViewModel;
+using Binah.Web.Api.ViewModels;
 using Raven.Client.Linq;
 
 namespace Binah.Web.Api.Controllers
