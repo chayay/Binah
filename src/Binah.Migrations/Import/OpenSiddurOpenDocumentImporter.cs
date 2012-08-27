@@ -144,7 +144,7 @@ namespace Binah.Migrations.Import
 						var prevSnippet = snippets
 							.Where(snippet => snippet != null)
 							.Select(snippet => new {Index = int.Parse(snippet.Id), Snippet = snippet})
-							.Where(arg => arg.Index < i)
+							.Where(arg => arg.Index < i + 1)
 							.OrderByDescending(arg => arg.Index)
 							.Select(x => x.Snippet )
 							.First();
@@ -164,6 +164,10 @@ namespace Binah.Migrations.Import
 			switch (file)
 			{
 				case "PrayerForTravelers":
+					if (i == 1)
+						return ItemConsolidateAction.Remove;
+					if (i >= 3 && i <= 4)
+						return ItemConsolidateAction.MergeWithPrevious;
 					if (i >= 5 && i <= 8)
 						return ItemConsolidateAction.Remove;
 					
