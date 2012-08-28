@@ -42,13 +42,17 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 
 			using (var session = store.OpenSession())
 			{
-				new ImportAll(session.Store).Execute();
+				new ImportAll(entity =>
+				{
+					session.Store(entity);
+					return entity.Id;
+				}).Execute();
 				session.SaveChanges();
 			}
 			
 			using (var session = store.OpenSession())
 			{
-				return session.Load<SiddurSnippet>("Tefilat-HaDerech");
+				return session.Load<SiddurSnippet>("SiddurSnippets/Tefilat-HaDerech");
 			}
 		}
 	}

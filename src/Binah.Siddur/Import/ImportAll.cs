@@ -7,9 +7,9 @@ namespace Binah.Siddur.Import
 {
 	public class ImportAll
 	{
-		private readonly Action<Entity> store;
+		private readonly Func<Entity, string> store;
 
-		public ImportAll(Action<Entity> store)
+		public ImportAll(Func<Entity, string> store)
 		{
 			if (store == null)
 				throw new ArgumentNullException("store");
@@ -22,16 +22,8 @@ namespace Binah.Siddur.Import
 			var importers = typeof (ITeffilahImporter).Assembly.GetAllImplementorsOf<ITeffilahImporter>();
 			foreach (var importer in importers)
 			{
-				importer.Import(Store);
+				importer.Import(store);
 			}
-		}
-
-		private void Store(Entity entity)
-		{
-			if (string.IsNullOrWhiteSpace(entity.Id))
-				throw new InvalidOperationException("Entitie's ID must be set explicitly on the entity.");
-
-			store(entity);
 		}
 	}
 }

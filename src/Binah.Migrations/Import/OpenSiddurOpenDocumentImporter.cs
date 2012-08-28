@@ -203,9 +203,6 @@ namespace Binah.Migrations.Import
 				{
 					Id = (++importedSnippetsCount).ToString(CultureInfo.InvariantCulture),
 					Content = item.Trim(),
-					Revision = 1,
-					Type = SiddurType.TorahOr,
-					Comment = string.Format("Imported from the OpenSiddur Project. Version: '{0}'.", version),
 				};
 				Thread.Sleep(10);
 				snippets.Add(siddurSnippet);
@@ -219,8 +216,6 @@ namespace Binah.Migrations.Import
 			{
 				foreach (var siddurSnippet in snippets)
 				{
-					siddurSnippet.CreationDate = DateTimeOffset.Now;
-
 					if (siddurSnippet.Slug == null)
 						siddurSnippet.Id = "rawImport/SiddurSnippet/" + siddurSnippet.Id;
 					else
@@ -229,7 +224,6 @@ namespace Binah.Migrations.Import
 					}
 
 					session.Store(siddurSnippet);
-					Thread.Sleep(10);
 				}
 				session.SaveChanges();
 			}

@@ -52,6 +52,7 @@
     <Compile Include="Hebrew\YiddishDigraph.cs" />
     <Compile Include="Imports\DiffMatchPatch\DiffMatchPatch.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\SiddurPrayer.cs" />
     <Compile Include="Models\SiddurSnippet.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

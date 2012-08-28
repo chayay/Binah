@@ -128,7 +128,6 @@
     <Compile Include="Handlers\CorsHandler.cs" />
     <Compile Include="Helpers\JsonOnlyNegotiator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\NewSiddurParagraph.cs" />
     <Compile Include="App_Start\WebApiSetup.cs" />
     <Compile Include="ViewModels\RegistrationInput.cs" />
     <Compile Include="ViewModels\UserDto.cs" />
