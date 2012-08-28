@@ -152,6 +152,10 @@
       <Project>{19C42070-E604-48B0-8666-9C5DC971CCDB}</Project>
       <Name>Binah.Infrastructure.RavenDB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Binah.Siddur\Binah.Siddur.csproj">
+      <Project>{6D72326F-01A5-4ADA-A8D7-4780B9365299}</Project>
+      <Name>Binah.Siddur</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
