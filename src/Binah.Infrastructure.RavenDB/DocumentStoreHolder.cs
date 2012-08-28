@@ -38,8 +38,10 @@ namespace Binah.Infrastructure.RavenDB
 			return session;
 		}
 
-		private static void SetupConventions(DocumentConvention conventions)
+		public static void SetupConventions(DocumentConvention conventions)
 		{
+			conventions.TransformTypeTagNameToDocumentKeyPrefix = typeTagName => typeTagName;
+
 			conventions.RegisterIdConvention<SiddurSnippet>((commands, snippet) => string.Format("{0}/{1}", conventions.GetTypeTagName(snippet.GetType()), snippet.Slug));
 		}
 
