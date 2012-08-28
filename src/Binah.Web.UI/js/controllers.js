@@ -3,12 +3,17 @@
 /* Controllers */
 
 
-function AppCtrl($scope, $route, $routeParams, $location) {
+function AppCtrl($scope, $route, $routeParams, $location, $http, strings) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
+    
+    $http.get(strings.apiUrl + '/api/user').
+        success(function (data, status, headers, config) {
+            $scope.user = data;
+        });
 }
-AppCtrl.$inject = ['$scope', '$route', '$routeParams', '$location'];
+AppCtrl.$inject = ['$scope', '$route', '$routeParams', '$location', '$http', 'strings'];
 
 function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
     $scope.skip = 0;
