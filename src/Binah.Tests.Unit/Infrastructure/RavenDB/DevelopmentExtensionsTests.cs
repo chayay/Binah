@@ -1,17 +1,16 @@
 ﻿using Binah.Infrastructure.RavenDB.Development;
 using Raven.Client;
-using Raven.Client.Embedded;
 using Xunit;
 
 namespace Binah.Tests.Unit.Infrastructure.RavenDB
 {
-	public class DevelopmentExtensionsTests
+	public class DevelopmentExtensionsTests : RavenTest
 	{
 		private readonly IDocumentStore store;
 
 		public DevelopmentExtensionsTests()
 		{
-			store = new EmbeddableDocumentStore { RunInMemory = true }.Initialize();
+			store = NewDocumentStore();
 			using (var session = store.OpenSession())
 			{
 				session.Store(new Item {Id = "item/1"});
