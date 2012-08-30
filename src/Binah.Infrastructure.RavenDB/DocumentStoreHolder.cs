@@ -43,6 +43,7 @@ namespace Binah.Infrastructure.RavenDB
 			conventions.TransformTypeTagNameToDocumentKeyPrefix = typeTagName => typeTagName;
 
 			conventions.RegisterIdConvention<SiddurSnippet>((commands, snippet) => string.Format("{0}/{1}", conventions.GetTypeTagName(snippet.GetType()), snippet.Slug));
+			conventions.RegisterIdConvention<SiddurPrayer>((commands, prayer) => string.Format("{0}/{1}", conventions.GetTypeTagName(prayer.GetType()), prayer.Slug));
 		}
 
 		public static void Shutdown()

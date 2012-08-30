@@ -42,11 +42,7 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 
 			using (var session = store.OpenSession())
 			{
-				new ImportAll(entity =>
-				{
-					session.Store(entity);
-					return entity.Id;
-				}).Execute();
+				new ImportAll(new SiddurImporter(session).Store).Execute();
 				session.SaveChanges();
 			}
 			

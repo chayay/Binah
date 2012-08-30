@@ -120,6 +120,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbstractApiController.cs" />
+    <Compile Include="Helpers\RavenSessionManagementAttribute .cs" />
     <Compile Include="Controllers\SiddurController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
