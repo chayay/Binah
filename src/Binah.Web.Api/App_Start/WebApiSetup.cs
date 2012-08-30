@@ -7,16 +7,16 @@ namespace Binah.Web.Api
 {
 	public static class WebApiSetup
 	{
-		public static void Setup()
+		public static void Setup(HttpConfiguration configuration)
 		{
 			// Remove XML formatter
-			GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+			configuration.Formatters.Remove(configuration.Formatters.XmlFormatter);
 
 			// We do not need the content negotiation right now. Just use JSON.
-			GlobalConfiguration.Configuration.Services.Replace(typeof(IContentNegotiator), new JsonOnlyNegotiator());
+			configuration.Services.Replace(typeof(IContentNegotiator), new JsonOnlyNegotiator());
 
 			// Support CORS - when running locally only
-			GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler());
+			configuration.MessageHandlers.Add(new CorsHandler());
 		}
 	}
 }

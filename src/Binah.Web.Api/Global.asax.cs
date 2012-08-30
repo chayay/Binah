@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Binah.Infrastructure.RavenDB;
@@ -11,12 +12,12 @@ namespace Binah.Web.Api
 		{
 			AreaRegistration.RegisterAllAreas();
 
-			WebApiSetup.Setup();
-			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+			DocumentStoreHolder.Initialize();
+
+			WebApiSetup.Setup(GlobalConfiguration.Configuration);
+			FilterConfig.RegisterGlobalFilters(GlobalConfiguration.Configuration.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			CommonSetup.Setup();
-
-			DocumentStoreHolder.Initialize();
 		}
 	}
 }
