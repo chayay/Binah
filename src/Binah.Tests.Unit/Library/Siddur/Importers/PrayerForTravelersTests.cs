@@ -1,9 +1,10 @@
 ﻿using System;
+using Binah.Core.Extensions;
 using Binah.Core.Hebrew;
 using Binah.Core.Models;
-using Binah.Siddur.Import;
+using Binah.Siddur.TeffilahImporters;
+using Binah.Web.Api;
 using Xunit;
-using Binah.Core.Extensions;
 
 namespace Binah.Tests.Unit.Library.Siddur.Importers
 {
@@ -42,7 +43,7 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 
 			using (var session = store.OpenSession())
 			{
-				new ImportAll(new SiddurImporter(session).Store).Execute();
+				new PrayerForTravelers().Import(new ImportData(session).Store);
 				session.SaveChanges();
 			}
 			

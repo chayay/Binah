@@ -13,6 +13,11 @@ namespace Binah.Web.Api
 			AreaRegistration.RegisterAllAreas();
 
 			DocumentStoreHolder.Initialize();
+			using (var session = DocumentStoreHolder.OpenSession())
+			{
+				new ImportData(session).Import();
+				session.SaveChanges();
+			}
 
 			WebApiSetup.Setup(GlobalConfiguration.Configuration);
 			FilterConfig.RegisterGlobalFilters(GlobalConfiguration.Configuration.Filters);

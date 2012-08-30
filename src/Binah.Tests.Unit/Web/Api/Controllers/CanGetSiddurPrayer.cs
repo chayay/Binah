@@ -1,9 +1,7 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Web.Http;
-using Binah.Siddur.Import;
 using Binah.Siddur.TeffilahImporters;
-using Binah.Tests.Unit.Library.Siddur.Importers;
+using Binah.Web.Api;
 using Binah.Web.Api.Controllers;
 using Raven.Client.Embedded;
 using Xunit;
@@ -18,7 +16,7 @@ namespace Binah.Tests.Unit.Web.Api.Controllers
 			var store = NewDocumentStore();
 			using (var session = store.OpenSession())
 			{
-				new PrayerForTravelers().Import(new SiddurImporter(session).Store);
+				new PrayerForTravelers().Import(new ImportData(session).Store);
 				session.SaveChanges();
 			}
 
