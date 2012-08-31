@@ -5,6 +5,7 @@
 angular.module('BinahApp', ['ngResource', 'ngSanitize', 'BinahApp.filters', 'BinahApp.services', 'BinahApp.directives'])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.when('/siddur/paragraphs', { templateUrl: '/partials/siddurParagraphs.html', controller: SiddurParagraphsCtrl });
+        $routeProvider.when('/siddur/:slug', { templateUrl: '/partials/siddurPrayer.html', controller: SiddurPrayerCtrl });
         $routeProvider.when('/siddur', { templateUrl: '/partials/siddur.html', controller: SiddurCtrl });
         $routeProvider.otherwise({ redirectTo: '/' });
 

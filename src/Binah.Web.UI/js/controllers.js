@@ -48,3 +48,10 @@ function SiddurCtrl($scope, $routeParams, $resource, $http) {
     $scope.name = "SiddurCtrl";
 }
 SiddurCtrl.$inject = ['$scope', '$routeParams', '$resource'];
+
+function SiddurPrayerCtrl($scope, $routeParams, $http, strings) {
+    $http.get(strings.apiUrl + '/api/siddur/' + $routeParams.slug).
+        success(function(data) {
+            $scope.prayer = data;
+        });
+}

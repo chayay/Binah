@@ -119,6 +119,7 @@
     <Content Include="js\services.js" />
     <Content Include="js\_references.js" />
     <Content Include="packages.config" />
+    <Content Include="partials\siddurPrayer.html" />
     <Content Include="partials\newItems.html" />
     <Content Include="partials\siddur.html" />
     <Content Include="partials\siddurParagraphs.html" />
