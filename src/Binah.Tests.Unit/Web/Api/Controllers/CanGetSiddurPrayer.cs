@@ -5,6 +5,7 @@ using Binah.Web.Api;
 using Binah.Web.Api.Controllers;
 using Raven.Client.Embedded;
 using Xunit;
+using System.Linq;
 
 namespace Binah.Tests.Unit.Web.Api.Controllers
 {
@@ -24,7 +25,7 @@ namespace Binah.Tests.Unit.Web.Api.Controllers
 			var controller = new SiddurController {RavenSession = store.OpenSession()};
 			var prayer = controller.GetPrayer("Tefilat-HaDerech");
 
-			Assert.Equal(1, prayer.Snippets.Length);
+			Assert.Equal(1, prayer.Snippets.Count());
 		}
 
 		[Fact]
