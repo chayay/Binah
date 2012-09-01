@@ -7,5 +7,7 @@ namespace Binah.Core.Models
 		public string Slug { get; set; }
 		public string Content { get; set; }
 		public bool IsProofreaded { get; set; }
+
+		public int[] SiddurTorahOrPages { get; set; }
 	}
 }
