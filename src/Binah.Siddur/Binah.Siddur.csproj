@@ -33,12 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Binah.Core">
-      <HintPath>..\Binah.Web.Api\bin\Binah.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Binah.Infrastructure.RavenDB">
-      <HintPath>..\Binah.Web.Api\bin\Binah.Infrastructure.RavenDB.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +53,16 @@
     <Compile Include="TefillahResolvers\ShabbatResolver.cs" />
     <Compile Include="TefillahResolvers\TachanunResolver.cs" />
     <Compile Include="TefillahBuilders\TefillahBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Binah.Core\Binah.Core.csproj">
+      <Project>{50a2726d-d05b-4c2b-8d2f-ada81155bd41}</Project>
+      <Name>Binah.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Binah.Infrastructure.RavenDB\Binah.Infrastructure.RavenDB.csproj">
+      <Project>{19c42070-e604-48b0-8666-9c5dc971ccdb}</Project>
+      <Name>Binah.Infrastructure.RavenDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
