@@ -7,17 +7,7 @@ namespace Binah.Tests.Unit.Helpers
 {
 	public static class StringTestHelpers
 	{
-		public static void ShouldEqualWithDiff(this string actualValue, string expectedValue)
-		{
-			ShouldEqualWithDiff(actualValue, expectedValue, DiffStyle.Full, Console.Out);
-		}
-
-		public static void ShouldEqualWithDiff(this string actualValue, string expectedValue, DiffStyle diffStyle)
-		{
-			ShouldEqualWithDiff(actualValue, expectedValue, diffStyle, Console.Out);
-		}
-
-		public static void ShouldEqualWithDiff(this string actualValue, string expectedValue, DiffStyle diffStyle, TextWriter output)
+		public static void ShouldEqualWithDiff(this string actualValue, string expectedValue, DiffStyle diffStyle = DiffStyle.Full, TextWriter output = null)
 		{
 			if (actualValue == null || expectedValue == null)
 			{
@@ -25,9 +15,12 @@ namespace Binah.Tests.Unit.Helpers
 				return;
 			}
 
+			if (output == null)
+				output = Console.Out;
+
 			if (actualValue.Equals(expectedValue, StringComparison.Ordinal)) return;
 
-			output.WriteLine("Position\t Expected  \t Actual");
+			output.WriteLine("Position\t Expected\t\t Actual");
 			output.WriteLine("---------------------------------------------------------");
 			int maxLen = Math.Max(actualValue.Length, expectedValue.Length);
 			int minLen = Math.Min(actualValue.Length, expectedValue.Length);
@@ -35,7 +28,7 @@ namespace Binah.Tests.Unit.Helpers
 			{
 				if (diffStyle != DiffStyle.Minimal || i >= minLen || actualValue[i] != expectedValue[i])
 				{
-					output.WriteLine("{0,-3}{1}\t  {2,-4} ({3,-3})\t {4,-4} ({5,-3})",
+					output.WriteLine("{0,-3}{1}\t\t {2,-4} ({3,-3})\t\t {4,-4} ({5,-3})",
 					                 i, // the index
 					                 i < minLen && actualValue[i] == expectedValue[i] ? " " : "*", // put a mark beside a differing row
 					                 i < expectedValue.Length ? expectedValue[i].ToSafeString() : "", // character safe string
