@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using Binah.Core.Hebrew;
 
 namespace Binah.Tests.Unit.Library.Unicode
 {
@@ -24,7 +26,16 @@ namespace Binah.Tests.Unit.Library.Unicode
 				{
 					if (niqqud == null)
 						niqqud = new List<char>();
-
+					builder.Append(c);
+				}
+				else if(category == UnicodeCategory.OtherPunctuation)
+				{
+					if (c == Punctuations.Colon)
+						builder.Append(HebrewPunctuations.SofPasuq);
+				}
+				else
+				{
+					throw new InvalidOperationException(string.Format("Char: '{0}'.  Unicode: 'U+{1:X4}'. Category: '{2}'. Content: '{3}'.", c, (int)c, category, content));
 				}
 			}
 

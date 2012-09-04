@@ -21,7 +21,6 @@ namespace Binah.Core.Hebrew
 		public const char Paseq = '\u05C0';
 		public const char ShinDot = '\u05C1';
 		public const char SinDot = '\u05C2';
-		public const char SofPasuq = '\u05C3';
 		public const char MarkUpperDot = '\u05C4';
 		public const char MarkLowerDot = '\u05C5';
 		public const char QamatsQatan = '\u05C7';

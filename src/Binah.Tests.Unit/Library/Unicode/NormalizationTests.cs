@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Binah.Core.Hebrew;
 using Binah.Core.Models;
 using Binah.Siddur.TeffilahImporters;
 using Binah.Tests.Unit.Helpers;
@@ -48,6 +48,18 @@ namespace Binah.Tests.Unit.Library.Unicode
 					word.NormalizeHebrew().ShouldEqualWithDiff(word);
 				}
 			}
+		}
+
+		[Fact]
+		public void TextDoesNotContainsColon_ShouldContainSofPasuqInstead()
+		{
+			Assert.DoesNotContain(Punctuations.Colon, GetSnippet().Content);
+		}
+
+		[Fact]
+		public void EndsWithSofPasuq()
+		{
+			Assert.Equal(HebrewPunctuations.SofPasuq, GetSnippet().Content.Last());
 		}
 
 		private SiddurSnippet GetSnippet()

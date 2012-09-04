@@ -76,7 +76,8 @@ namespace Binah.Tests.Unit.Library.Unicode
 		[Fact]
 		public void OtherPunctuation()
 		{
-			Assert.Equal(UnicodeCategory.OtherPunctuation, CharUnicodeInfo.GetUnicodeCategory(HebrewVowels.SofPasuq));
+			Assert.Equal(UnicodeCategory.OtherPunctuation, CharUnicodeInfo.GetUnicodeCategory(HebrewPunctuations.SofPasuq));
+			Assert.Equal(UnicodeCategory.OtherPunctuation, CharUnicodeInfo.GetUnicodeCategory(Punctuations.Colon));
 			Assert.Equal(UnicodeCategory.OtherPunctuation, CharUnicodeInfo.GetUnicodeCategory(HebrewVowels.Paseq));
 
 			Assert.Equal(UnicodeCategory.OtherPunctuation, CharUnicodeInfo.GetUnicodeCategory(YiddishDigraph.NunHafukha));

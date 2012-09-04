@@ -48,7 +48,9 @@
     <Compile Include="Hebrew\CantillationMarks.cs" />
     <Compile Include="Hebrew\HebrewExtensions.cs" />
     <Compile Include="Hebrew\HebrewLetters.cs" />
+    <Compile Include="Hebrew\HebrewPunctuations.cs" />
     <Compile Include="Hebrew\HebrewVowels.cs" />
+    <Compile Include="Hebrew\Punctuations.cs" />
     <Compile Include="Hebrew\YiddishDigraph.cs" />
     <Compile Include="Imports\DiffMatchPatch\DiffMatchPatch.cs" />
     <Compile Include="Models\Entity.cs" />
