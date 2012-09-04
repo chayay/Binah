@@ -29,5 +29,47 @@ namespace Binah.Core.Hebrew
 		public const char Resh = '\u05E8';
 		public const char Shin = '\u05E9';
 		public const char Tav = '\u05EA';
+
+		public const char AlefLamed = '\uFB4F';
+		public const char DoubleVav = '\u05F0';
+		public const char VavYod = '\u05F1';
+		public const char DoubleYod = '\u05F2';
+
+		public char[] Letters = new[]
+		{
+			Alef,
+			Bet,
+			Gimel,
+			Dalet,
+			He,
+			Vav,
+			Zayin,
+			Het,
+			Tet,
+			Yod,
+			Kaf,
+			Lamed,
+			Mem,
+			Nun,
+			Samekh,
+			Ayin,
+			Pe,
+			Tsadi,
+			Qof,
+			Resh,
+			Shin,
+			Tav,
+
+			FinalKaf,
+			FinalMem,
+			FinalNun,
+			FinalPe,
+			FinalTsadi,
+
+			AlefLamed,
+			DoubleVav,
+			VavYod,
+			DoubleYod,
+		};
 	}
 }

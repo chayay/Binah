@@ -5,7 +5,7 @@ namespace Binah.Core.Hebrew
 		public const char Sheva = '\u05B0';
 		public const char HatafSegol = '\u05B1';
 		public const char HatafPatach = '\u05B2';
-		public const char HatafKamatz = '\u05B3';
+		public const char HatafQamatz = '\u05B3';
 		public const char Hiriq = '\u05B4';
 		public const char Zeire = '\u05B5';
 		public const char Segol = '\u05B6';

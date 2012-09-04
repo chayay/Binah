@@ -28,13 +28,14 @@ namespace Binah.Tests.Unit.Helpers
 			{
 				if (diffStyle != DiffStyle.Minimal || i >= minLen || actualValue[i] != expectedValue[i])
 				{
-					output.WriteLine("{0,-3}{1}\t\t {2,-4} ({3,-3})\t\t {4,-4} ({5,-3})",
+					output.WriteLine("{0,-3}{1}\t\t {2,-4} ({3,-3})\t\t {4,-4} ({5,-3} {6})",
 					                 i, // the index
-					                 i < minLen && actualValue[i] == expectedValue[i] ? " " : "*", // put a mark beside a differing row
-					                 i < expectedValue.Length ? expectedValue[i].ToSafeString() : "", // character safe string
-					                 i < expectedValue.Length ? HexChar(expectedValue[i]) : "", // character decimal value
-					                 i < actualValue.Length ? actualValue[i].ToSafeString() : "", // character safe string
-					                 i < actualValue.Length ? (HexChar(actualValue[i])) : "" // character decimal value
+					                 i < minLen && actualValue[i] == expectedValue[i] ? " " : "*",		// put a mark beside a differing row
+					                 i < expectedValue.Length ? expectedValue[i].ToSafeString() : "",	// character safe string
+					                 i < expectedValue.Length ? HexChar(expectedValue[i]) : "",			// character decimal value
+					                 i < actualValue.Length ? actualValue[i].ToSafeString() : "",		// character safe string
+					                 i < actualValue.Length ? HexChar(actualValue[i]) : "",				// character decimal value
+									 i < actualValue.Length ? CharUnicodeInfo.GetUnicodeCategory(actualValue[i]).ToString() : ""	// char Unicode category
 						);
 				}
 			}
