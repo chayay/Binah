@@ -133,10 +133,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\StringTestHelpers.cs" />
     <Compile Include="Infrastructure\RavenDB\DevelopmentExtensionsTests.cs" />
     <Compile Include="Infrastructure\RavenDB\DocumentIdConventionTests.cs" />
     <Compile Include="Library\Siddur\Importers\PrayerForTravelersTests.cs" />
+    <Compile Include="Library\Unicode\HebrewUnicodeTextHelper.cs" />
+    <Compile Include="Library\Unicode\TetragrammatonTests.cs" />
     <Compile Include="Library\Unicode\UnicodeCategories.cs" />
     <Compile Include="Library\Unicode\UnicodeNormalizationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

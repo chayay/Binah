@@ -51,6 +51,7 @@
     <Compile Include="Hebrew\HebrewPunctuations.cs" />
     <Compile Include="Hebrew\HebrewVowels.cs" />
     <Compile Include="Hebrew\Punctuations.cs" />
+    <Compile Include="Hebrew\Tetragrammaton.cs" />
     <Compile Include="Hebrew\YiddishDigraph.cs" />
     <Compile Include="Imports\DiffMatchPatch\DiffMatchPatch.cs" />
     <Compile Include="Models\Entity.cs" />

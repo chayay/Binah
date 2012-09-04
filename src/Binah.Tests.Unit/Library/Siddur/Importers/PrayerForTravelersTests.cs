@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
 using Binah.Core.Extensions;
 using Binah.Core.Hebrew;
 using Binah.Core.Models;
 using Binah.Siddur.TeffilahImporters;
+using Binah.Tests.Unit.Helpers;
+using Binah.Tests.Unit.Library.Unicode;
 using Binah.Web.Api;
 using Xunit;
 
@@ -18,7 +21,7 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		}
 
 		[Fact]
-		public void ShouldContain67Words()
+		public void ShouldContains67Words()
 		{
 			var content = GetSnippet().Content;
 			Assert.NotNull(content);
@@ -28,13 +31,48 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		}
 
 		[Fact]
-		public void DoesNotContainsANotRecognizedChar()
+		public void DoesNotContainANotRecognizedChar()
 		{
 			var content = GetSnippet().Content;
 			foreach (var c in content)
 			{
-				Assert.True(c == ' ' || c == ':' || c.IsHebrewLetter() || c.IsVowel(), string.Format(@"'{0}' is not a recognized char. Unicode: \u{1:X4}.", c, (int) c));
+				HebrewUnicodeTextHelper.IsAHebrewRecognizedChar(c);
 			}
+		}
+
+		[Fact]
+		public void DoesNotContainDoubleYod()
+		{
+			var content = GetSnippet().Content;
+			Assert.DoesNotContain("יְיָ", content);
+			Assert.DoesNotContain(HebrewLetters.DoubleYod, content);
+			Assert.DoesNotContain(Tetragrammaton.Short, content);
+		}
+
+		[Fact]
+		public void ShouldContainTheFullTetragrammatonTwice()
+		{
+			var content = GetSnippet().Content;
+			Assert.Equal(2, content.NumberOfOccurencies(Tetragrammaton.Full));
+		}
+
+		[Fact]
+		public void DoesNotContainsColon()
+		{
+			Assert.DoesNotContain(Punctuations.Colon, GetSnippet().Content);
+		}
+
+		[Fact]
+		public void EndsWithSofPasuq()
+		{
+			Assert.Equal(HebrewPunctuations.SofPasuq, GetSnippet().Content.Last());
+		}
+
+		[Fact]
+		public void HasSofPasuqTwice()
+		{
+			var content = GetSnippet().Content;
+			Assert.Equal(2, content.NumberOfOccurencies(HebrewPunctuations.SofPasuq));
 		}
 
 		private SiddurSnippet GetSnippet()

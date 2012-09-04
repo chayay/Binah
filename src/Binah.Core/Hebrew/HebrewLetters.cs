@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Binah.Core.Hebrew
 {
 	public class HebrewLetters
@@ -35,7 +37,7 @@ namespace Binah.Core.Hebrew
 		public const char VavYod = '\u05F1';
 		public const char DoubleYod = '\u05F2';
 
-		public char[] Letters = new[]
+		public static readonly char[] Letters = new[]
 		{
 			Alef,
 			Bet,
@@ -71,5 +73,10 @@ namespace Binah.Core.Hebrew
 			VavYod,
 			DoubleYod,
 		};
+
+		public static bool IsHebrewLetter(char c)
+		{
+			return Letters.Contains(c);
+		}
 	}
 }
