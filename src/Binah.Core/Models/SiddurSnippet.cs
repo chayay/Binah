@@ -9,5 +9,6 @@ namespace Binah.Core.Models
 		public bool IsProofreaded { get; set; }
 
 		public int[] SiddurTorahOrPages { get; set; }
+		public int[] SiddurTehillatHashemPages { get; set; }
 	}
 }

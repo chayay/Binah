@@ -21,13 +21,13 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		}
 
 		[Fact]
-		public void ShouldContains67Words()
+		public void ShouldContains62Words()
 		{
 			var content = GetSnippet().Content;
 			Assert.NotNull(content);
 			var words = content.Split(new[]{' '});
 			words.ForEach(Console.WriteLine);
-			Assert.Equal(67, words.Length);
+			Assert.Equal(62, words.Length);
 		}
 
 		[Fact]
@@ -73,6 +73,15 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		{
 			var content = GetSnippet().Content;
 			Assert.Equal(2, content.NumberOfOccurencies(HebrewPunctuations.SofPasuq));
+		}
+
+		[Fact]
+		public void HasMaqaf5Times()
+		{
+			var content = GetSnippet().Content;
+			var doubleMaqafTimes = 1;
+			Assert.Equal(5 + doubleMaqafTimes, content.NumberOfOccurencies(HebrewPunctuations.Maqaf));
+			Assert.Equal(doubleMaqafTimes, content.NumberOfOccurencies(new string(HebrewPunctuations.Maqaf, 2)));
 		}
 
 		private SiddurSnippet GetSnippet()

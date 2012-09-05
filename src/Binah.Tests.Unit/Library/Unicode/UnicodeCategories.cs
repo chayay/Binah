@@ -70,7 +70,7 @@ namespace Binah.Tests.Unit.Library.Unicode
 		[Fact]
 		public void DashPunctuation()
 		{
-			Assert.Equal(UnicodeCategory.DashPunctuation, CharUnicodeInfo.GetUnicodeCategory(HebrewVowels.Maqaf));			
+			Assert.Equal(UnicodeCategory.DashPunctuation, CharUnicodeInfo.GetUnicodeCategory(HebrewPunctuations.Maqaf));
 		}
 
 		[Fact]

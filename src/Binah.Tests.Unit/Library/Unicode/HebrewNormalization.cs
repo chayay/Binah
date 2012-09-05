@@ -33,6 +33,11 @@ namespace Binah.Tests.Unit.Library.Unicode
 					if (c == Punctuations.Colon)
 						builder.Append(HebrewPunctuations.SofPasuq);
 				}
+				else if (category == UnicodeCategory.DashPunctuation)
+				{
+					if (c == HebrewPunctuations.Maqaf)
+						builder.Append(c);
+				}
 				else
 				{
 					throw new InvalidOperationException(string.Format("Char: '{0}'.  Unicode: 'U+{1:X4}'. Category: '{2}'. Content: '{3}'.", c, (int)c, category, content));

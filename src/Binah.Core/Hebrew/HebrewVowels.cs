@@ -16,7 +16,6 @@ namespace Binah.Core.Hebrew
 		public const char Kubutz = '\u05BB';
 		public const char DageshOrMapiqOrShuruq = '\u05BC';
 		public const char Meteg = '\u05BD';
-		public const char Maqaf = '\u05BE';
 		public const char Rafe = '\u05BF';
 		public const char Paseq = '\u05C0';
 		public const char ShinDot = '\u05C1';
