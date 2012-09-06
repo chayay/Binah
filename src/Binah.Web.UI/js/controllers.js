@@ -3,7 +3,7 @@
 /* Controllers */
 
 
-function AppCtrl($scope, $route, $routeParams, $location, $http, strings) {
+function AppController($scope, $route, $routeParams, $location, $http, strings) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
@@ -13,9 +13,9 @@ function AppCtrl($scope, $route, $routeParams, $location, $http, strings) {
             $scope.user = data;
         });
 }
-AppCtrl.$inject = ['$scope', '$route', '$routeParams', '$location', '$http', 'strings'];
+AppController.$inject = ['$scope', '$route', '$routeParams', '$location', '$http', 'strings'];
 
-function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
+function SiddurParagraphsController($scope, $routeParams, $resource, $http, strings) {
     $scope.skip = 0;
     $scope.items = [];
     $scope.loadMore = function () {
@@ -42,14 +42,14 @@ function SiddurParagraphsCtrl($scope, $routeParams, $resource, $http, strings) {
         });
     };
 }
-SiddurParagraphsCtrl.$inject = ['$scope', '$routeParams', '$resource', '$http', 'strings'];
+SiddurParagraphsController.$inject = ['$scope', '$routeParams', '$resource', '$http', 'strings'];
 
-function SiddurCtrl($scope, $routeParams, $resource, $http) {
-    $scope.name = "SiddurCtrl";
+function SiddurController($scope, $routeParams, $resource, $http) {
+    $scope.name = "SiddurController";
 }
-SiddurCtrl.$inject = ['$scope', '$routeParams', '$resource'];
+SiddurController.$inject = ['$scope', '$routeParams', '$resource'];
 
-function SiddurPrayerCtrl($scope, $routeParams, $http, strings) {
+function SiddurPrayerController($scope, $routeParams, $http, strings) {
     $http.get(strings.apiUrl + '/api/siddur/' + $routeParams.slug).
         success(function(data) {
             $scope.prayer = data;
