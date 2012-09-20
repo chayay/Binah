@@ -15,7 +15,7 @@ properties {
 Task default -Depends Test
 
 Task Clean {
-   "clean"
+	Remove-Item $buildartifacts_dir -Force -Recurse  -ErrorAction SilentlyContinue
 }
 
 Task Init -depends Clean {
@@ -26,11 +26,13 @@ Task Compile -Depends Init {
 	$msBuild = "$Env:WinDir\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
 	
 	Write-Host "Compiling code with '$configuration' configuration" -ForegroundColor Yellow
+	New-Item $buildartifacts_dir -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 	exec { &$msBuild "$sln_file" /p:OutDir="$buildArtifacts_dir\" /nodeReuse:false /p:Configuration=$configuration /p:Platform="Any CPU" /verbosity:minimal /fileLogger "/fileloggerparameters:LogFile=$buildArtifacts_dir\MSBuild.log;Verbosity=Normal;Encoding=UTF-8" }
 }
 
 Task Test -Depends Compile {
-	"This is a test"
+	$xUnit = Get-PackagePath xunit.runners
+	exec { &"$xUnit\tools\xunit.console.exe" "$src_dir\Binah.xunit" }
 }
 
 Task Release {

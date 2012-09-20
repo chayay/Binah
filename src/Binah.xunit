@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xunit>
+  <assemblies>
+    <assembly filename="..\bin\Binah.Tests.Unit.dll" />
+    <assembly filename="..\bin\Binah.Tests.Integration.dll" />
+  </assemblies>
+  <output type="html" filename="..\bin\TestResults" />
+</xunit>
