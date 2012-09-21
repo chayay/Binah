@@ -44,8 +44,13 @@
   <ItemGroup>
     <Compile Include="Import\ImportAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeffilahImporters\Shema.cs" />
+    <Compile Include="TeffilahImporters\Kaddish.cs" />
+    <Compile Include="TeffilahImporters\MorningBlessings.cs" />
+    <Compile Include="TeffilahImporters\UponArising.cs" />
     <Compile Include="TeffilahImporters\PrayerForTravelers.cs" />
     <Compile Include="TeffilahImporters\ITeffilahImporter.cs" />
+    <Compile Include="TefillahResolvers\Resolver.cs" />
     <Compile Include="TefillahBuilders\AmidahBuilder.cs" />
     <Compile Include="TefillahBuilders\KiddushBuilder.cs" />
     <Compile Include="TefillahBuilders\MinchaBuilder.cs" />
