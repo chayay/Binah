@@ -29,7 +29,23 @@ namespace Binah.Migrations.Import
 		{
 			new[]
 			{
-				"PrayerForTravelers",
+				/* 
+				 * Done:
+				 * "PrayerForTravelers",
+				 * "MorningBlessing",
+				 */
+
+				"",
+
+				/* 
+				 * TODO:
+				 * 
+				// "BlessingBook",
+				// "BedtimeShema",
+				// "KiddushLevana",
+				// "MorningBlessing",
+				// "TikkunHatzot",
+				// "HanukahBlessings",
 				// "ShaharitMorning",
 				// "ShaharitMusafShabbat",
 				// "MinhahAfternoon",
@@ -37,16 +53,16 @@ namespace Binah.Migrations.Import
 				// "MaarivEvening",
 				// "SefiratHaOmer",
 				// "KiddushLevana",
-				// "TheBedtimeShema",
-				// "TheBlessingBook",
 				// "TheShabbatBook",
 				// "TikkunHatzot",
+				 * */
 			}
 				.ForEach(file =>
 				{
 					importedSnippetsCount = 0;
 					var snippets = ImportFile(file);
 					snippets = ConsolidateSnippets(snippets, file);
+					WriteSnippetsToFile(snippets, file);
 					AddItemsToDatabase(snippets);
 				});
 		}
@@ -172,6 +188,11 @@ namespace Binah.Migrations.Import
 						return ItemConsolidateAction.Remove;
 					
 					break;
+				case "MorningBlessing":
+					if (i == 33)
+						return ItemConsolidateAction.MergeWithPrevious;
+
+					break;
 				case "ShaharitMorning":
 					if (i == 3)
 						return ItemConsolidateAction.Remove;
@@ -227,6 +248,17 @@ namespace Binah.Migrations.Import
 				}
 				session.SaveChanges();
 			}
+		}
+
+		private void WriteSnippetsToFile(List<SiddurSnippet> snippets, string file)
+		{
+			var lines = snippets.Select(snippet => @"				store(new SiddurSnippet
+				{
+					Slug = """",
+					Content = """ + snippet.Content + @""",
+				}),");
+
+			File.WriteAllLines("snippets_" + file + ".cs", lines);
 		}
 
 		private bool IgnoreItem(string span)
