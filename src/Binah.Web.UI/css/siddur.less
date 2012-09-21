@@ -5,11 +5,23 @@
 			font-family: 'EzraSilSR';
 			font-size: 27px;
 			text-align: justify;
+	   -moz-text-align-last: center;
+		-ms-text-align-last: center;
+			text-align-last: center;
 			width: 427px;
 			line-height: 37px;
 			text-rendering: geometricPrecision;
 			word-spacing: 2px;
 			text-overflow: ellipsis;
+
+			&::selection {
+				background-color: #a9a9a9;
+			}
+
+			span:first-child {
+				font-weight: bold;
+				color: cadetblue;
+			}
 		}
 	}
 }
