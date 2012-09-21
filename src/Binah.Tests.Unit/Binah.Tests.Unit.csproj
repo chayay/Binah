@@ -104,13 +104,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit, Version=2.0.0.1611, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+    <Reference Include="xunit, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\xunit.2.0.0-alpha-build1611\lib\net45\xunit.dll</HintPath>
+      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.extensions, Version=2.0.0.1611, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\xunit.extensions.2.0.0-alpha-build1611\lib\net45\xunit.extensions.dll</HintPath>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\packages\xunit.extensions.1.9.1\lib\net20\xunit.extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -130,8 +129,6 @@
     <Compile Include="Helpers\StringTestHelpers.cs" />
     <Compile Include="Infrastructure\RavenDB\DevelopmentExtensionsTests.cs" />
     <Compile Include="Infrastructure\RavenDB\DocumentIdConventionTests.cs" />
-    <Compile Include="Library\Siddur\Importers\AllSiddurSnippets.cs" />
-    <Compile Include="Library\Siddur\Importers\TestTheCorrectensOfAllSiddurSnippetsContent.cs" />
     <Compile Include="Library\Siddur\Importers\PrayerForTravelersTests.cs" />
     <Compile Include="Library\Unicode\HebrewUnicodeTextHelper.cs" />
     <Compile Include="Library\Unicode\TetragrammatonTests.cs" />
@@ -148,14 +145,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\RavenDB.Embedded.1.2.2084-Unstable\tools\Raven.Studio.xap">
-      <Link>Raven.Studio.xap</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Binah.Core\Binah.Core.csproj">
-      <Project>{50a2726d-d05b-4c2b-8d2f-ada81155bd41}</Project>
+      <Project>{50A2726D-D05B-4C2B-8D2F-ADA81155BD41}</Project>
       <Name>Binah.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Binah.Infrastructure.RavenDB\Binah.Infrastructure.RavenDB.csproj">
@@ -163,13 +154,19 @@
       <Name>Binah.Infrastructure.RavenDB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Binah.Siddur\Binah.Siddur.csproj">
-      <Project>{6d72326f-01a5-4ada-a8d7-4780b9365299}</Project>
+      <Project>{6D72326F-01A5-4ADA-A8D7-4780B9365299}</Project>
       <Name>Binah.Siddur</Name>
     </ProjectReference>
     <ProjectReference Include="..\Binah.Web.Api\Binah.Web.Api.csproj">
       <Project>{bccefdae-dc17-451d-8fc0-c4b23a42a3e6}</Project>
       <Name>Binah.Web.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\RavenDB.Embedded.1.2.2084-Unstable\tools\Raven.Studio.xap">
+      <Link>Raven.Studio.xap</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
