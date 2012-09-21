@@ -11,4 +11,12 @@ namespace Binah.Core.Models
 		public int[] SiddurTorahOrPages { get; set; }
 		public int[] SiddurTehillatHashemPages { get; set; }
 	}
+
+	public class WordReference
+	{
+		public int Index { get; set; }
+		public string Word { get; set; }
+		public string PreviousWord { get; set; }
+		public string NextWord { get; set; }
+	}
 }
