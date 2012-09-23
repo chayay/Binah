@@ -1,6 +1,4 @@
-﻿using System;
-using Binah.Core.Hebrew;
-using Binah.Core.Models;
+﻿using Binah.Core.Hebrew;
 using Xunit;
 using Xunit.Extensions;
 
@@ -20,6 +18,13 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		public void SlugsShouldNotBeEmpty(string slug, string content)
 		{
 			Assert.NotEmpty(slug);
+		}
+
+		[Theory]
+		[ClassData(typeof(AllSiddurSnippets))]
+		public void SlugsShouldNotContainASpace(string slug, string content)
+		{
+			Assert.DoesNotContain(' ', slug);
 		}
 	}
 }
