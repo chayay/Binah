@@ -1,37 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Binah.Core.Models;
 
 namespace Binah.Siddur.TeffilahImporters
 {
-	public class UponArising : ITeffilahImporter
+	public class UponArising : ISiddurPrayerImporter
 	{
-		public void Import(Func<Entity, string> store)
+		public IEnumerable<SiddurPrayer> GetPrayers()
 		{
-			store(new SiddurPrayer
+			return new[]
 			{
-				Slug = "Hashkamat-HaBoker",
-				NamesEn = new[] {"Upon Arising", "Modeh Ani", "Hashkamat HaBoker"},
-				NamesHe = new[] {"השכמת הבקר", "השכמת הבוקר", "מודה אני"},
-				Snippets = GetSnippets(store),
-			});
+				new SiddurPrayer
+				{
+					Slug = "Hashkamat-HaBoker",
+					NamesEn = new[] {"Upon Arising", "Modeh Ani", "Hashkamat HaBoker"},
+					NamesHe = new[] {"השכמת הבקר", "השכמת הבוקר", "מודה אני"},
+					Snippets = new[] {"Modeh-Ani"}.Select(IdGenerator.ForSiddurSnippet).ToArray(),
+				},
+			};
 		}
 
-		private string[] GetSnippets(Func<Entity, string> store)
+		public IEnumerable<SiddurSnippet> GetSnippets()
 		{
-			var snippets = new List<string>
+			return new[]
 			{
-				store(new SiddurSnippet
+				new SiddurSnippet
 				{
 					Slug = "Modeh-Ani",
 					Content = "מוֹדֶה אֲנִי לְפָנֶיךָ מֶלֶךְ חַי וְקַיָּם, שֶׁהֶחֱזַרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה. רַבָּה אֱמוּנָתֶךָ:",
 					IsProofreaded = false,
 					SiddurTorahOrPages = new[] {4},
 					SiddurTehillatHashemPages = new[] {6},
-				}),
+				},
 			};
-
-			return snippets.ToArray();
 		}
 	}
 }

@@ -49,7 +49,7 @@
     <Compile Include="TeffilahImporters\MorningBlessings.cs" />
     <Compile Include="TeffilahImporters\UponArising.cs" />
     <Compile Include="TeffilahImporters\PrayerForTravelers.cs" />
-    <Compile Include="TeffilahImporters\ITeffilahImporter.cs" />
+    <Compile Include="TeffilahImporters\ISiddurPrayerImporter.cs" />
     <Compile Include="TefillahResolvers\Resolver.cs" />
     <Compile Include="TefillahBuilders\AmidahBuilder.cs" />
     <Compile Include="TefillahBuilders\KiddushBuilder.cs" />

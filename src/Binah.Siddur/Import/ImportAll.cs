@@ -19,7 +19,7 @@ namespace Binah.Siddur.Import
 
 		public void Execute()
 		{
-			var importers = typeof (ITeffilahImporter).Assembly.GetAllImplementorsOf<ITeffilahImporter>();
+			var importers = typeof (ISiddurPrayerImporter).Assembly.GetAllImplementorsOf<ISiddurPrayerImporter>();
 			foreach (var importer in importers)
 			{
 				importer.Import(store);
