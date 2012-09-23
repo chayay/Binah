@@ -1,11 +1,10 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Web.Http;
-using Binah.Siddur.TeffilahImporters;
 using Binah.Web.Api;
 using Binah.Web.Api.Controllers;
 using Raven.Client.Embedded;
 using Xunit;
-using System.Linq;
 
 namespace Binah.Tests.Unit.Web.Api.Controllers
 {
@@ -15,11 +14,7 @@ namespace Binah.Tests.Unit.Web.Api.Controllers
 		public void WillReturnTheCorrectPrayer()
 		{
 			var store = NewDocumentStore();
-			using (var session = store.OpenSession())
-			{
-				new PrayerForTravelers().Import(new ImportData(session).Store);
-				session.SaveChanges();
-			}
+			ImportData.Import(store);
 
 			WaitForUserToContinueTheTest((EmbeddableDocumentStore) store);
 			var controller = new SiddurController {RavenSession = store.OpenSession()};

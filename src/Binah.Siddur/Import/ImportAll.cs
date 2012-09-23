@@ -1,28 +1,18 @@
 ﻿using System;
 using Binah.Core.Extensions;
-using Binah.Core.Models;
 using Binah.Siddur.TeffilahImporters;
 
 namespace Binah.Siddur.Import
 {
-	public class ImportAll
+	public static class ImportAll
 	{
-		private readonly Func<Entity, string> store;
-
-		public ImportAll(Func<Entity, string> store)
-		{
-			if (store == null)
-				throw new ArgumentNullException("store");
-
-			this.store = store;
-		}
-
-		public void Execute()
+		public static void Execute(Action<object> store)
 		{
 			var importers = typeof (ISiddurPrayerImporter).Assembly.GetAllImplementorsOf<ISiddurPrayerImporter>();
 			foreach (var importer in importers)
 			{
-				importer.Import(store);
+				importer.GetSnippets().ForEach(store);
+				importer.GetPrayers().ForEach(store);
 			}
 		}
 	}

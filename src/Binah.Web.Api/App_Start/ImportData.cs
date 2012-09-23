@@ -1,35 +1,22 @@
 using Binah.Core.Models;
-using Binah.Infrastructure.RavenDB;
 using Binah.Siddur.Import;
 using Raven.Client;
 
 namespace Binah.Web.Api
 {
-	public class ImportData
+	public static class ImportData
 	{
-		private readonly IDocumentSession session;
-
-		public ImportData(IDocumentSession session)
+		public static void Import(IDocumentStore store)
 		{
-			this.session = session;
-		}
-
-		public void Import()
-		{
-			using (var session = DocumentStoreHolder.OpenSession())
+			using (var session = store.OpenSession())
 			{
-				var prayer = session.Load<SiddurPrayer>("SiddurPrayers/Tefilat-HaDerech");
-				if (prayer != null)
+				var snippet = session.Load<SiddurSnippet>(IdGenerator.ForSiddurSnippet("Tefilat-HaDerech"));
+				if (snippet != null)
 					return;
-
-				new ImportAll(Store).Execute();
+				
+				ImportAll.Execute(session.Store);
+				session.SaveChanges();
 			}
-		}
-
-		public string Store(Entity entity)
-		{
-			session.Store(entity);
-			return entity.Id;
 		}
 	}
 }

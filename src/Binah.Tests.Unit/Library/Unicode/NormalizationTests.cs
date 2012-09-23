@@ -5,7 +5,6 @@ using Binah.Core.Hebrew;
 using Binah.Core.Models;
 using Binah.Siddur.TeffilahImporters;
 using Binah.Tests.Unit.Helpers;
-using Binah.Web.Api;
 using Xunit;
 using Xunit.Sdk;
 
@@ -50,32 +49,9 @@ namespace Binah.Tests.Unit.Library.Unicode
 			}
 		}
 
-		[Fact]
-		public void TextDoesNotContainsColon_ShouldContainSofPasuqInstead()
-		{
-			Assert.DoesNotContain(Punctuations.Colon, GetSnippet().Content);
-		}
-
-		[Fact]
-		public void EndsWithSofPasuq()
-		{
-			Assert.Equal(HebrewPunctuations.SofPasuq, GetSnippet().Content.Last());
-		}
-
 		private SiddurSnippet GetSnippet()
 		{
-			var store = NewDocumentStore();
-
-			using (var session = store.OpenSession())
-			{
-				new PrayerForTravelers().Import(new ImportData(session).Store);
-				session.SaveChanges();
-			}
-
-			using (var session = store.OpenSession())
-			{
-				return session.Load<SiddurSnippet>("SiddurSnippets/Tefilat-HaDerech");
-			}
+			return new PrayerForTravelers().GetSnippets().Single();
 		}
 	}
 }

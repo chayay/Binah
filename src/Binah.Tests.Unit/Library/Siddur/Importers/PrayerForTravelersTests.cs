@@ -57,18 +57,6 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 		}
 
 		[Fact]
-		public void DoesNotContainsColon()
-		{
-			Assert.DoesNotContain(Punctuations.Colon, GetSnippet().Content);
-		}
-
-		[Fact]
-		public void EndsWithSofPasuq()
-		{
-			Assert.Equal(HebrewPunctuations.SofPasuq, GetSnippet().Content.Last());
-		}
-
-		[Fact]
 		public void HasSofPasuqTwice()
 		{
 			var content = GetSnippet().Content;
@@ -86,18 +74,7 @@ namespace Binah.Tests.Unit.Library.Siddur.Importers
 
 		private SiddurSnippet GetSnippet()
 		{
-			var store = NewDocumentStore();
-
-			using (var session = store.OpenSession())
-			{
-				new PrayerForTravelers().Import(new ImportData(session).Store);
-				session.SaveChanges();
-			}
-			
-			using (var session = store.OpenSession())
-			{
-				return session.Load<SiddurSnippet>("SiddurSnippets/Tefilat-HaDerech");
-			}
+			return new PrayerForTravelers().GetSnippets().Single();
 		}
 	}
 }
