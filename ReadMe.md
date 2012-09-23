@@ -2,6 +2,10 @@
 
 See [our mission](https://groups.google.com/forum/?fromgroups#!topic/binah/R0yA4aYvewU) on the [group](https://groups.google.com/forum/?fromgroups#!forum/binah) for more details about this project.
 
+# Links
+
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/Binah-Project/Binah)
+
 ## How to run?
 
 In order to compile the project, you should have (Microsoft Visual Studio)[http://en.wikipedia.org/wiki/Microsoft_Visual_Studio] installed.  
