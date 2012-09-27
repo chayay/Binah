@@ -66,3 +66,13 @@ Task ExportData {
 	$smuggler = "C:\RavenDB\Smuggler\Raven.Smuggler.exe"
 	. $smuggler out http://localhost:8080/ "$dump_dir\Documents.dump.zip" --database=Binah --operate-on-types=Documents
 }
+
+Task Chocolatey {
+	$chocolatey = Get-PackagePath chocolatey
+	&"$chocolatey\tools\chocolateyInstall.ps1"	
+}
+
+Task Yeoman {
+	&"Chocolatey install Yeoman"
+	Exec { &npm update yeoman -g }
+}
