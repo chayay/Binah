@@ -252,11 +252,11 @@ namespace Binah.Migrations.Import
 
 		private void WriteSnippetsToFile(List<SiddurSnippet> snippets, string file)
 		{
-			var lines = snippets.Select(snippet => @"				store(new SiddurSnippet
+			var lines = snippets.Select(snippet => @"				new SiddurSnippet
 				{
 					Slug = """",
 					Content = """ + snippet.Content + @""",
-				}),");
+				},");
 
 			File.WriteAllLines("snippets_" + file + ".cs", lines);
 		}
