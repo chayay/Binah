@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
 using Binah.Core.Models;
+using Binah.Web.Api.Dtos;
 using Binah.Web.Api.ViewModels;
 
 namespace Binah.Web.Api.Controllers
@@ -24,6 +26,19 @@ namespace Binah.Web.Api.Controllers
 				Name = prayer.NamesHe.FirstOrDefault(),
 				Snippets = RavenSession.Load<SiddurSnippet>(prayer.Snippets),
 			};
+		}
+
+		[GET("api/siddur")]
+		public IEnumerable<SiddurPrayerIcon> GetPrayers()
+		{
+			var prayers = RavenSession.Query<SiddurPrayer>()
+				.Where(prayer => prayer.IsRoot)
+				.ToArray();
+
+			return prayers.Select(prayer => new SiddurPrayerIcon
+			{
+				Slug = prayer.Slug,
+			});
 		}
 	}
 }

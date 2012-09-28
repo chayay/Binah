@@ -23,6 +23,7 @@ namespace Binah.Siddur.TeffilahImporters
 					{
 						"...",
 					}.Select(IdGenerator.ForSiddurSnippet).ToArray(),
+					IsRoot = true,
 				},
 			};
 		}

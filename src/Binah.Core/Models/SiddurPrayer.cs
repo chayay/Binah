@@ -6,5 +6,7 @@ namespace Binah.Core.Models
 		public string[] NamesEn { get; set; }
 		public string[] NamesHe { get; set; }
 		public string[] Snippets { get; set; }
+		
+		public bool IsRoot { get; set; }
 	}
 }
