@@ -35,12 +35,11 @@ namespace Binah.Migrations.Import
 				 * "MorningBlessing",
 				 */
 
-				"",
+				"BlessingBook",
 
 				/* 
 				 * TODO:
 				 * 
-				// "BlessingBook",
 				// "BedtimeShema",
 				// "KiddushLevana",
 				// "MorningBlessing",
@@ -179,6 +178,13 @@ namespace Binah.Migrations.Import
 		{
 			switch (file)
 			{
+				case "BlessingBook":
+					if (i == 127)
+						return ItemConsolidateAction.Remove;
+					if (i >= 128 && i <= 136)
+						return ItemConsolidateAction.MergeWithPrevious;
+					
+					break;
 				case "PrayerForTravelers":
 					if (i == 1)
 						return ItemConsolidateAction.Remove;
@@ -252,9 +258,10 @@ namespace Binah.Migrations.Import
 
 		private void WriteSnippetsToFile(List<SiddurSnippet> snippets, string file)
 		{
+			var debug = false;
 			var lines = snippets.Select(snippet => @"				new SiddurSnippet
 				{
-					Slug = """",
+					Slug = """ + (debug ? snippet.Id : "") + @""",
 					Content = """ + snippet.Content + @""",
 				},");
 
