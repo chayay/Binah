@@ -56,8 +56,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\404.html" />
+    <Content Include="app\components\AngularJS\angular-bootstrap-prettify.js" />
+    <Content Include="app\components\AngularJS\angular-bootstrap-prettify.min.js" />
+    <Content Include="app\components\AngularJS\angular-bootstrap.js" />
+    <Content Include="app\components\AngularJS\angular-bootstrap.min.js" />
+    <Content Include="app\components\AngularJS\angular-cookies.js" />
+    <Content Include="app\components\AngularJS\angular-cookies.min.js" />
+    <Content Include="app\components\AngularJS\angular-loader.js" />
+    <Content Include="app\components\AngularJS\angular-loader.min.js" />
+    <Content Include="app\components\AngularJS\angular-mocks.js" />
+    <Content Include="app\components\AngularJS\angular-resource.js" />
+    <Content Include="app\components\AngularJS\angular-resource.min.js" />
+    <Content Include="app\components\AngularJS\angular-sanitize.js" />
+    <Content Include="app\components\AngularJS\angular-sanitize.min.js" />
+    <Content Include="app\components\AngularJS\angular-scenario.js" />
     <Content Include="app\components\AngularJS\angular.js" />
-    <Content Include="app\components\jquery\jquery.js" />
+    <Content Include="app\components\AngularJS\angular.min.js" />
+    <Content Include="app\components\AngularJS\i18n\angular-locale_en-us.js" />
+    <Content Include="app\components\AngularJS\i18n\angular-locale_en.js" />
+    <Content Include="app\components\AngularJS\i18n\angular-locale_he-il.js" />
+    <Content Include="app\components\AngularJS\i18n\angular-locale_he.js" />
     <Content Include="app\favicon.ico" />
     <Content Include="app\fonts\ezrasilsr-webfont.svg" />
     <Content Include="app\images\glyphicons-halflings-white.png" />
@@ -76,16 +94,6 @@
     <Content Include="app\scripts\controllers.js" />
     <Content Include="app\scripts\directives.js" />
     <Content Include="app\scripts\filters.js" />
-    <Content Include="app\scripts\libs\angular\angular-resource.js" />
-    <Content Include="app\scripts\libs\angular\angular-resource.min.js" />
-    <Content Include="app\scripts\libs\angular\angular-sanitize.js" />
-    <Content Include="app\scripts\libs\angular\angular-sanitize.min.js" />
-    <Content Include="app\scripts\libs\angular\angular.js" />
-    <Content Include="app\scripts\libs\angular\angular.min.js" />
-    <Content Include="app\scripts\libs\angular\i18n\angular-locale_en-us.js" />
-    <Content Include="app\scripts\libs\angular\i18n\angular-locale_en.js" />
-    <Content Include="app\scripts\libs\angular\i18n\angular-locale_he-il.js" />
-    <Content Include="app\scripts\libs\angular\i18n\angular-locale_he.js" />
     <Content Include="app\scripts\libs\appCache.js" />
     <Content Include="app\scripts\libs\DiffMatchPatch\diffMatchPatch.js" />
     <Content Include="app\scripts\libs\DiffMatchPatch\diffMatchPatch.min.js" />
@@ -93,15 +101,10 @@
     <Content Include="app\scripts\libs\dust\dust-core.min.js" />
     <Content Include="app\scripts\libs\dust\dust-full.js" />
     <Content Include="app\scripts\libs\dust\dust-full.min.js" />
-    <None Include="app\scripts\libs\jquery\jquery.intellisense.js" />
-    <Content Include="app\scripts\libs\jquery\jquery.js" />
-    <Content Include="app\scripts\libs\jquery\jquery.min.js" />
     <Content Include="app\scripts\libs\lesscss\less.min.js" />
     <Content Include="app\scripts\libs\network.js" />
     <Content Include="app\scripts\libs\springy\springy.js" />
     <Content Include="app\scripts\libs\springy\springyui.js" />
-    <Content Include="app\scripts\libs\underscore\underscore.js" />
-    <Content Include="app\scripts\libs\underscore\underscore.min.js" />
     <Content Include="app\scripts\services.js" />
     <Content Include="app\scripts\vendor\bootstrap\bootstrap-affix.js" />
     <Content Include="app\scripts\vendor\bootstrap\bootstrap-alert.js" />
@@ -120,10 +123,15 @@
     <Content Include="app\scripts\vendor\modernizr.min.js" />
     <Content Include="app\scripts\_references.js" />
     <Content Include="app\styles\libs\notmalize\normalize.css" />
-    <Content Include="components\AngularJS\angular.js" />
-    <Content Include="components\jquery\jquery.js" />
     <Content Include="Gruntfile.js" />
     <Content Include="packages.config" />
+    <None Include="app\components\AngularJS\component.json" />
+    <None Include="app\components\jquery\component.json" />
+    <None Include="app\components\jquery\jquery.intellisense.js" />
+    <Content Include="app\components\jquery\jquery.js" />
+    <Content Include="app\components\jquery\jquery.min.js" />
+    <Content Include="app\components\AngularJS\jstd-scenario-adapter-config.js" />
+    <Content Include="app\components\AngularJS\jstd-scenario-adapter.js" />
     <Content Include="test\index.html" />
     <Content Include="test\lib\chai.js" />
     <Content Include="test\lib\expect.js" />
@@ -131,14 +139,10 @@
     <Content Include="test\lib\mocha\mocha.js" />
     <Content Include="test\runner\mocha.js" />
     <Content Include="Web.config" />
-    <Content Include="components\AngularJS\component.json" />
-    <Content Include="components\jquery\component.json" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\.htaccess" />
-    <Content Include="app\components\AngularJS\component.json" />
-    <Content Include="app\components\jquery\component.json" />
     <Content Include="app\fonts\ezrasilsr-webfont.eot" />
     <Content Include="app\fonts\ezrasilsr-webfont.ttf" />
     <Content Include="app\fonts\ezrasilsr-webfont.woff" />
