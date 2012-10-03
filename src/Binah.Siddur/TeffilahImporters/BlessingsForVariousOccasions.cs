@@ -29,12 +29,6 @@ namespace Binah.Siddur.TeffilahImporters
 			{
 				new SiddurSnippet
 				{
-					Slug = "Al-Netilat-Yadayim",
-					Content = "בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְצִוָנוּ עַל נְטִילַת יָדָים:",
-				},
-
-				new SiddurSnippet
-				{
 					Slug = "Gefen",
 					Content = "בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, בּוֹרֵא פְּרִי הַגָּפֶן:",
 				},

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Binah.Core.Models;
 using System.Linq;
+using Binah.Core.Models;
 
 namespace Binah.Siddur.TeffilahImporters
 {
