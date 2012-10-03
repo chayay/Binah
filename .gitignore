@@ -56,3 +56,5 @@ publish
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+/src/TestResults/Binah.TE.Tests.mdf
+/src/TestResults/Binah.TE.Tests_log.ldf
