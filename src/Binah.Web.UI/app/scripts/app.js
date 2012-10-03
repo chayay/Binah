@@ -25,4 +25,3 @@ angular.module('BinahApp', ['ngResource', 'ngSanitize', 'BinahApp.filters', 'Bin
             };
         }
     });
-
