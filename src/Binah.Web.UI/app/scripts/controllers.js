@@ -44,10 +44,13 @@ function SiddurParagraphsController($scope, $routeParams, $resource, $http, stri
 }
 SiddurParagraphsController.$inject = ['$scope', '$routeParams', '$resource', '$http', 'strings'];
 
-function SiddurController($scope, $routeParams, $resource, $http) {
-    $scope.name = "SiddurController";
+function SiddurController($scope, $routeParams, $resource, $http, strings) {
+    $http.get(strings.apiUrl + '/api/siddur').
+        success(function(data, status, headers, config) {
+            $scope.prayers = data;
+        });
 }
-SiddurController.$inject = ['$scope', '$routeParams', '$resource'];
+SiddurController.$inject = ['$scope', '$routeParams', '$resource', '$http', 'strings'];
 
 function SiddurPrayerController($scope, $routeParams, $http, strings) {
     $http.get(strings.apiUrl + '/api/siddur/' + $routeParams.slug).

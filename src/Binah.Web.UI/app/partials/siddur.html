@@ -2,8 +2,10 @@
     <header>
         <h1>Siddur</h1>
     </header>
-    
-    {{name}}
-</article>
 
-http://wiki.jewishliturgy.org/Hebrew_Font_and_Keyboard_Layout_Setup
+    <ul>
+        <li ng-repeat="prayer in prayers">
+            <a>{{prayer.slug}}</a>
+        </li>
+    </ul>
+</article>
