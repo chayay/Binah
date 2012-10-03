@@ -136,7 +136,7 @@
     <Content Include="test\lib\mocha\mocha.css" />
     <Content Include="test\lib\mocha\mocha.js" />
     <Content Include="test\runner\mocha.js" />
-    <Content Include="Web.config" />
+    <Content Include="app\Web.config" />
     <Content Include="package.json" />
     <Content Include="app\components\TwitterBootstrap\less\wells.less" />
     <Content Include="app\components\TwitterBootstrap\less\variables.less" />
