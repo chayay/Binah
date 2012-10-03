@@ -12,7 +12,7 @@ namespace Binah.Siddur.TeffilahImporters
 			{
 				new SiddurPrayer
 				{
-					Slug = "Birkot-HaShachar",
+					Slug = "Blessings",
 					NamesEn = new[] {"Blessings for various occasions"},
 					NamesHe = new[] {"סדר ברכות"},
 					Snippets = new[]
