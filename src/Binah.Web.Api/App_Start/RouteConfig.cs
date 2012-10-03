@@ -1,12 +1,11 @@
 ﻿using System.Web.Http;
-using System.Web.Routing;
 using AttributeRouting.Web.Http.WebHost;
 
 namespace Binah.Web.Api
 {
 	public class RouteConfig
 	{
-		public static void RegisterRoutes(RouteCollection routes)
+		public static void RegisterRoutes(HttpRouteCollection routes)
 		{
 			AttributeRoutingRegisterRoutes(routes);
 
@@ -17,7 +16,7 @@ namespace Binah.Web.Api
 			);
 		}
 
-		private static void AttributeRoutingRegisterRoutes(RouteCollection routes)
+		private static void AttributeRoutingRegisterRoutes(HttpRouteCollection routes)
 		{
 			// See http://github.com/mccalltd/AttributeRouting/wiki for more options.
 			// To debug routes locally using the built in ASP.NET development server, go to /routes.axd
